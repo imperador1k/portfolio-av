@@ -1,0 +1,394 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "appstore": "App Store",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Miguel",
+    "subtitle": "Full-Stack Developer",
+    "description": "Passionate 20-year-old developer creating amazing websites and mobile apps. Love challenges, adventures, and turning ideas into reality.",
+    "cta": "Let's Create Something Amazing",
+    "typewriterTexts": {
+      "fullStack": "Full-Stack Developer",
+      "reactSpecialist": "React Specialist",
+      "mobileDeveloper": "Mobile App Developer",
+      "webDesigner": "Web Designer",
+      "freelanceDeveloper": "Freelance Developer"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "My Story",
+    "story": "My journey into the world of technology began in 2024 when I entered university to study Computer Engineering. In April 2025, I took my first steps into web development and discovered my passion for creating digital experiences. In just 5 months, I've built numerous projects, from local accommodation websites to diet tracking apps and smart shopping lists. Today, I work as a freelancer, bringing my rapidly acquired skills to help clients turn their ideas into reality through innovative web solutions.",
+    "interests": "Interests",
+    "funFacts": "Fun Facts About Me",
+    "journey": "My Journey",
+    "hobbies": "Hobbies & Interests",
+    "testimonials": "What Clients Say",
+    "downloadCV": "Download My CV",
+    "cvButton": "Download CV",
+    "personalInfo": {
+      "location": "Location",
+      "age": "Age",
+      "education": "Education",
+      "portugal": "Portugal 🇵🇹",
+      "ageValue": "20 years old",
+      "educationValue": "Computer Engineering"
+    },
+    "passions": {
+      "code": "Code",
+      "codeDesc": "My passion",
+      "adventure": "Adventure",
+      "adventureDesc": "My escape",
+      "languages": "Languages",
+      "languagesDesc": "My curiosity",
+      "fitness": "Fitness",
+      "fitnessDesc": "My energy"
+    },
+    "funFactsList": [
+      "I've already eaten 10.000kcal in one day!",
+      "I've climbed the highest mountain in Portugal (Serra da Estrela)",
+      "I love motorcycles",
+      "I speak 3 languages: Portuguese (native), English (fluent), French (learning)",
+      "I once coded for 12 hours straight without breaks (not recommended!)",
+      "I'm a certified fitness enthusiast and love extreme sports"
+    ],
+    "timeline": {
+      "freelanceDeveloper": "Freelance Developer",
+      "freelanceDeveloperDesc": "Started offering web development services on Fiverr, specializing in business websites and mobile apps",
+      "firstCommercialProjects": "First Commercial Projects",
+      "firstCommercialProjectsDesc": "Developed websites for local businesses including accommodation and restaurant websites",
+      "exploringMore": "Exploring More...",
+      "exploringMoreDesc": "Started learning more web development with React, Node.js, and more. Not satisfied, I started doing some basic mobile apps for me",
+      "programmingJourneyBegins": "Programming Journey Begins",
+      "programmingJourneyBeginsDesc": "Started learning web development with HTML, CSS, and JavaScript, building personal projects",
+      "computerEngineeringStudent": "Computer Engineering Student",
+      "computerEngineeringStudentDesc": "Currently pursuing Bachelor's in Computer Engineering, focusing on software development and system architecture"
+    },
+    "hobbiesList": [
+      "Rock Climbing",
+      "Gaming",
+      "Fitness",
+      "Languages"
+    ],
+    "testimonialsList": [
+      {
+        "name": "Maria Silva",
+        "role": "Business Owner",
+        "content": "Miguel delivered an outstanding website for my accommodation business. Professional, responsive, and exceeded all expectations!"
+      },
+      {
+        "name": "João Santos",
+        "role": "Restaurant Manager",
+        "content": "The burger restaurant website Miguel created increased our online orders by 300%. Amazing work and great communication!"
+      },
+      {
+        "name": "Ana Costa",
+        "role": "Fitness Enthusiast",
+        "content": "The personal training app Miguel developed is incredible. It's like having a personal trainer in your pocket!"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "viewDetails": "View Details",
+    "liveDemo": "Live Demo",
+    "viewCode": "View Code",
+    "moreTags": "more",
+    "dietFitnessApp": {
+      "title": "Diet & Fitness App",
+      "description": "Comprehensive calorie counting app with gamification, premium features, and personalized meal plans for healthy lifestyle management",
+      "challenges": [
+        "Implementing complex calorie calculation algorithms with real-time updates",
+        "Creating an intuitive user interface for meal tracking and progress visualization",
+        "Integrating payment processing with Stripe for premium features",
+        "Optimizing app performance for smooth user experience across different devices"
+      ],
+      "features": [
+        "Real-time calorie tracking with barcode scanning",
+        "Gamification system with achievements and streaks",
+        "Personalized meal plans based on dietary preferences",
+        "Premium subscription with advanced analytics",
+        "Social features for sharing progress with friends",
+        "Integration with fitness trackers and wearables"
+      ],
+      "achievements": [
+        "Achieved 4.8/5 rating on app stores",
+        "Successfully processed over 10,000 premium subscriptions",
+        "Reduced app loading time by 40% through optimization",
+        "Implemented secure payment processing with 99.9% uptime"
+      ]
+    },
+    "smartShoppingApp": {
+      "title": "Smart Shopping List App",
+      "description": "Intelligent shopping list with chat functionality, group sharing, and reusable templates for efficient grocery management",
+      "challenges": [
+        "Implementing real-time chat functionality with WebSocket connections",
+        "Creating an intuitive group sharing system for family shopping lists",
+        "Developing smart categorization algorithms for automatic item sorting",
+        "Ensuring data synchronization across multiple devices and users"
+      ],
+      "features": [
+        "Real-time collaborative shopping lists",
+        "Smart item categorization and suggestions",
+        "Group chat functionality for family coordination",
+        "Voice-to-text item addition",
+        "Location-based store recommendations",
+        "Price comparison and budget tracking"
+      ],
+      "achievements": [
+        "Successfully implemented real-time synchronization across devices",
+        "Achieved 99.5% message delivery rate in chat functionality",
+        "Reduced shopping time by 30% for regular users",
+        "Maintained zero data loss during concurrent user sessions"
+      ]
+    },
+    "moinhoWebsite": {
+      "title": "Moinho Accommodation Website",
+      "description": "Professional website for a local accommodation in Portugal featuring booking system, gallery, and responsive design",
+      "challenges": [
+        "Creating a responsive design that works perfectly on all devices",
+        "Implementing a secure booking system with payment integration",
+        "Optimizing image loading for fast page performance",
+        "Integrating with local tourism APIs for real-time availability"
+      ],
+      "features": [
+        "Responsive design optimized for all devices",
+        "Online booking system with calendar integration",
+        "High-quality image gallery with lightbox functionality",
+        "Contact form with email notifications",
+        "SEO optimization for better search rankings",
+        "Multi-language support (Portuguese/English)"
+      ],
+      "achievements": [
+        "Increased online bookings by 150% within first month",
+        "Achieved 95+ Google PageSpeed score",
+        "Successfully integrated with local payment systems",
+        "Reduced bounce rate by 40% through improved UX"
+      ]
+    },
+    "vacationApartmentWebsite": {
+      "title": "Vacation Apartment Website",
+      "description": "Modern tourism website for vacation rental with online booking, payment integration, and customer reviews system",
+      "challenges": [
+        "Customizing WordPress theme to match client's brand identity",
+        "Implementing secure payment processing with multiple gateways",
+        "Creating an intuitive booking calendar with availability management",
+        "Integrating customer review system with moderation features"
+      ],
+      "features": [
+        "Custom WordPress theme with modern design",
+        "WooCommerce integration for booking management",
+        "Multiple payment gateway support (PayPal, Stripe, Bank Transfer)",
+        "Customer review and rating system",
+        "Automated email notifications for bookings",
+        "Mobile-responsive design with touch-friendly interface"
+      ],
+      "achievements": [
+        "Reduced booking processing time by 70%",
+        "Achieved 100% payment success rate",
+        "Increased customer satisfaction scores by 25%",
+        "Successfully handled 200+ concurrent bookings during peak season"
+      ]
+    },
+    "burgerRestaurantWebsite": {
+      "title": "Burger Restaurant Website",
+      "description": "Academic project featuring a complete restaurant website with menu, online ordering, and customer feedback system",
+      "challenges": [
+        "Creating an engaging visual design that represents the restaurant's brand",
+        "Implementing a user-friendly online ordering system",
+        "Developing a responsive layout that works on all devices",
+        "Integrating customer feedback system with admin dashboard"
+      ],
+      "features": [
+        "Interactive menu with detailed item descriptions",
+        "Online ordering system with cart functionality",
+        "Customer feedback and rating system",
+        "Admin dashboard for order management",
+        "Responsive design for mobile and desktop",
+        "Integration with social media platforms"
+      ],
+      "achievements": [
+        "Received highest grade in the academic project (18/20)",
+        "Successfully demonstrated all required functionalities",
+        "Created intuitive user experience praised by professors",
+        "Implemented secure data handling and validation"
+      ]
+    },
+    "personalTrainingApp": {
+      "title": "Personal Training App",
+      "description": "Custom workout app with video tutorials, progress tracking, and personalized training plans for fitness enthusiasts",
+      "challenges": [
+        "Implementing smooth video streaming for workout tutorials",
+        "Creating accurate progress tracking with data visualization",
+        "Developing personalized workout plan algorithms",
+        "Optimizing app performance for video-heavy content"
+      ],
+      "features": [
+        "High-quality video workout tutorials",
+        "Personalized training plans based on fitness level",
+        "Progress tracking with detailed analytics",
+        "Social features for sharing achievements",
+        "Offline mode for downloaded workouts",
+        "Integration with fitness trackers and wearables"
+      ],
+      "achievements": [
+        "Successfully implemented video streaming with 99% reliability",
+        "Created intuitive progress tracking system",
+        "Developed personalized algorithm for workout recommendations",
+        "Achieved smooth performance on low-end devices"
+      ]
+    },
+    "projectDetails": {
+      "duration": "Duration",
+      "teamSize": "Team Size",
+      "status": "Status",
+      "rating": "Rating",
+      "performance": "Performance",
+      "users": "Users",
+      "keyFeatures": "Key Features",
+      "challengesSolutions": "Challenges & Solutions",
+      "techStack": "Tech Stack",
+      "viewLive": "View Live",
+      "viewCode": "View Code",
+      "completed": "Completed",
+      "inProgress": "In Progress",
+      "solo": "Solo"
+    }
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "subtitle": "My journey in web development and technology",
+    "technologiesUsed": "Technologies Used",
+    "keyAchievements": "Key Achievements",
+    "freelance": "Freelance Developer",
+    "freelanceDesc": "Developing websites and apps for various business niches and entertainment projects. Specializing in CSS, JavaScript, HTML, React, Tailwind, TypeScript, Node.js and more.",
+    "current": "Current",
+    "duration": "Duration",
+    "teamSize": "Team Size",
+    "status": "Status",
+    "experiences": {
+      "fiverr": {
+        "company": "Fiverr",
+        "role": "Freelance Web Developer",
+        "period": "2025 - Present",
+        "description": "Providing web development services for businesses worldwide, specializing in modern websites and mobile applications",
+        "achievements": [
+          "5-star rating",
+          "100% completion rate",
+          "Fast delivery"
+        ]
+      },
+      "university": {
+        "company": "University Projects",
+        "role": "Computer Engineering Student",
+        "period": "2024 - Present",
+        "description": "Developing various academic and personal projects including web applications, and system designs for now...",
+        "achievements": [
+          "Academic excellence",
+          "Innovative solutions",
+          "Team collaboration"
+        ]
+      },
+      "local": {
+        "company": "Local Businesses",
+        "role": "Web Developer",
+        "period": "2025 - Present",
+        "description": "Created professional websites for local businesses including accommodations, restaurants, and tourism services",
+        "achievements": [
+          "Client satisfaction",
+          "SEO optimization",
+          "Mobile responsive"
+        ]
+      }
+    }
+  },
+  "appstore": {
+    "title": "My App Store",
+    "subtitle": "Your one-stop destination to explore, test, and install all my projects. From web applications to mobile apps, everything is ready for you to experience.",
+    "mobileApps": "Mobile Apps",
+    "mobileAppsDesc": "Download and install my mobile applications directly to your device. Full-featured apps ready for production use.",
+    "webApps": "Web Applications",
+    "webAppsDesc": "Experience my web applications in real-time. Interactive demos, live previews, and full functionality testing.",
+    "liveUpdates": "Live Updates",
+    "liveUpdatesDesc": "Stay updated with the latest features and improvements. Real-time updates, changelogs, and version tracking.",
+    "readyToExplore": "Ready to Explore?",
+    "readyToExploreDesc": "Visit my app store to discover all projects, read detailed descriptions, view screenshots, and get the latest updates.",
+    "visitAppStore": "Visit App Store",
+    "getInTouch": "Get in Touch",
+    "miguelAppStore": "Miguel's App Store",
+    "miguelAppStoreDesc": "Your one-stop destination to explore, test, and install all my projects. From web applications to mobile apps, everything is ready for you to experience."
+  },
+  "skills": {
+    "title": "Skills & Technologies"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Let's Create Something Amazing",
+    "description": "Ready to bring your ideas to life? I'm here to help you build something extraordinary. Let's discuss your project and make it happen!",
+    "name": "Your Name",
+    "email": "Email Address",
+    "subject": "Project Subject",
+    "message": "Your Message",
+    "namePlaceholder": "Enter your full name",
+    "emailPlaceholder": "your.email@example.com",
+    "subjectPlaceholder": "What's this about?",
+    "messagePlaceholder": "Tell me about your project, ideas, or just say hello! I'd love to hear from you.",
+    "sendMessage": "Send Message",
+    "sendingMessage": "Sending Message...",
+    "readyToSend": "Ready to send! Your message looks great.",
+    "successMessage": "Message sent successfully!"
+  },
+  "footer": {
+    "brand": "Miguel Santos",
+    "brandDesc": "Passionate full-stack developer creating amazing digital experiences. Turning ideas into reality through code, one project at a time.",
+    "quickLinks": "Quick Links",
+    "letsConnect": "Let's Connect",
+    "techStack": "Tech Stack",
+    "copyright": "© 2025 Miguel Santos. All rights reserved.",
+    "madeWith": "Built with ❤️ using React, TypeScript & Framer Motion",
+    "madeInPortugal": "Made in Portugal 🇵🇹",
+    "availableForProjects": "Available for projects",
+    "email": "Email",
+    "status": "Status"
+  },
+  "languages": {
+    "en": "English",
+    "pt": "Português",
+    "fr": "Français",
+    "es": "Español",
+    "it": "Italiano",
+    "de": "Deutsch"
+  },
+  "common": {
+    "viewDetails": "View Details",
+    "liveDemo": "Live Demo",
+    "viewCode": "View Code",
+    "moreTags": "more",
+    "duration": "Duration",
+    "teamSize": "Team Size",
+    "status": "Status",
+    "rating": "Rating",
+    "performance": "Performance",
+    "users": "Users",
+    "keyFeatures": "Key Features",
+    "challengesSolutions": "Challenges & Solutions",
+    "techStack": "Tech Stack",
+    "viewLive": "View Live",
+    "completed": "Completed",
+    "inProgress": "In Progress",
+    "solo": "Solo",
+    "mobile": "Mobile",
+    "web": "Web",
+    "fullstack": "Full-Stack",
+    "design": "Design",
+    "month": "month",
+    "months": "months",
+    "week": "week",
+    "weeks": "weeks"
+  }
+}
