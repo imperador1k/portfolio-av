@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Menu, X, Github, Linkedin, Mail, Rocket, Code, Sparkles, ChevronDown, Download } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, Rocket, Code, Sparkles, ChevronDown, Download, Instagram } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ScrollAnimation from './ScrollAnimation';
 import StaggerAnimation from './StaggerAnimation';
@@ -202,7 +202,7 @@ const NavBar = () => {
               {/* Compact Social Links */}
               <div className="hidden lg:flex items-center space-x-2">
                 <motion.a
-                  href="https://github.com/kanish-v15"
+                  href="https://github.com/imperador1k"
                   className="p-2 bg-deepSpace/50 rounded-lg border border-starWhite/10 hover:border-nebulaPink/50 transition-all duration-300 backdrop-blur-sm group relative overflow-hidden"
                   whileHover={{ 
                     scale: 1.05,
@@ -215,29 +215,16 @@ const NavBar = () => {
                 </motion.a>
                 
                 <motion.a
-                  href="https://www.linkedin.com/in/kanishv/"
-                  className="p-2 bg-deepSpace/50 rounded-lg border border-starWhite/10 hover:border-cosmicBlue/50 transition-all duration-300 backdrop-blur-sm group relative overflow-hidden"
+                  href="https://www.instagram.com/miguel1santos7/"
+                  className="p-2 bg-deepSpace/50 rounded-lg border border-starWhite/10 hover:border-pink-500/50 transition-all duration-300 backdrop-blur-sm group relative overflow-hidden"
                   whileHover={{ 
                     scale: 1.05,
                     y: -1
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Linkedin className="w-4 h-4 text-starWhite/70 group-hover:text-cosmicBlue transition-colors" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-cosmicBlue/10 to-violet-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-                </motion.a>
-                
-                <motion.a
-                  href="https://x.com/kanish2233"
-                  className="p-2 bg-deepSpace/50 rounded-lg border border-starWhite/10 hover:border-violet-500/50 transition-all duration-300 backdrop-blur-sm group relative overflow-hidden"
-                  whileHover={{ 
-                    scale: 1.05,
-                    y: -1
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <XIcon className="w-4 h-4 text-starWhite/70 group-hover:text-violet-500 transition-colors" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-violet-500/10 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+                  <Instagram className="w-4 h-4 text-starWhite/70 group-hover:text-pink-500 transition-colors" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-pink-500/10 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
                 </motion.a>
               </div>
               
@@ -555,9 +542,8 @@ const NavBar = () => {
                     transition={{ duration: 0.3, delay: 0.7 }}
                   >
                     {[
-                      { href: "https://github.com/kanish-v15", icon: Github, color: "nebulapink" },
-                      { href: "https://www.linkedin.com/in/kanishv/", icon: Linkedin, color: "cosmicblue" },
-                      { href: "https://x.com/kanish2233", icon: XIcon, color: "violet-500" },
+                      { href: "https://github.com/imperador1k", icon: Github, color: "nebulapink" },
+                      { href: "https://www.instagram.com/miguel1santos7/", icon: Instagram, color: "pink-500" },
                       { href: "mailto:migasmps2005@gmail.com", icon: Mail, color: "emerald-500" }
                     ].map((social, index) => {
                       const Icon = social.icon;

@@ -3,6 +3,7 @@ import {
   Linkedin,
   Mail,
   Rocket,
+  Instagram,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import NavBar from './components/NavBar';
@@ -327,25 +328,18 @@ function App() {
                 <StaggerAnimation staggerDelay={0.05} direction="up">
                   <div className="flex gap-6 justify-center">
               <a
-                href="https://github.com/kanish-v15"
+                href="https://github.com/imperador1k"
                 className="group relative p-3 bg-deepSpace/50 rounded-full hover:bg-deepSpace/80 transition-all duration-300 border border-starWhite/10"
               >
                 <Github className="w-6 h-6 group-hover:text-nebulaPink transition-colors" />
                 <div className="absolute inset-0 rounded-full bg-nebulaPink/20 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
               </a>
               <a
-                href="https://www.linkedin.com/in/kanishv/"
+                href="https://www.instagram.com/miguel1santos7/"
                 className="group relative p-3 bg-deepSpace/50 rounded-full hover:bg-deepSpace/80 transition-all duration-300 border border-starWhite/10"
               >
-                <Linkedin className="w-6 h-6 group-hover:text-cosmicBlue transition-colors" />
-                <div className="absolute inset-0 rounded-full bg-cosmicBlue/20 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-              </a>
-              <a
-                href="https://x.com/kanish2233"
-                className="group relative p-3 bg-deepSpace/50 rounded-full hover:bg-deepSpace/80 transition-all duration-300 border border-starWhite/10"
-              >
-                <XIcon className="w-6 h-6 group-hover:text-violet-500 transition-colors" />
-                <div className="absolute inset-0 rounded-full bg-violet-500/20 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                <Instagram className="w-6 h-6 group-hover:text-pink-500 transition-colors" />
+                <div className="absolute inset-0 rounded-full bg-pink-500/20 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
               </a>
               <a
                       href="mailto:migasmps2005@gmail.com"
@@ -618,25 +612,18 @@ function App() {
                   <ScrollAnimation direction="up" delay={0.3} duration={0.4}>
                     <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://github.com/kanish-v15"
+                  href="https://github.com/imperador1k"
                         className="group relative p-3 bg-deepSpace/50 rounded-xl border border-starWhite/10 hover:border-nebulaPink/50 transition-all duration-300 backdrop-blur-sm"
                 >
                         <Github className="w-6 h-6 text-starWhite/70 group-hover:text-nebulaPink transition-colors" />
                         <div className="absolute inset-0 rounded-xl bg-nebulaPink/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/kanishv/"
-                        className="group relative p-3 bg-deepSpace/50 rounded-xl border border-starWhite/10 hover:border-cosmicBlue/50 transition-all duration-300 backdrop-blur-sm"
+                  href="https://www.instagram.com/miguel1santos7/"
+                        className="group relative p-3 bg-deepSpace/50 rounded-xl border border-starWhite/10 hover:border-pink-500/50 transition-all duration-300 backdrop-blur-sm"
                 >
-                        <Linkedin className="w-6 h-6 text-starWhite/70 group-hover:text-cosmicBlue transition-colors" />
-                        <div className="absolute inset-0 rounded-xl bg-cosmicBlue/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </a>
-                <a
-                  href="https://x.com/kanish2233"
-                        className="group relative p-3 bg-deepSpace/50 rounded-xl border border-starWhite/10 hover:border-violet-500/50 transition-all duration-300 backdrop-blur-sm"
-                >
-                        <XIcon className="w-6 h-6 text-starWhite/70 group-hover:text-violet-500 transition-colors" />
-                        <div className="absolute inset-0 rounded-xl bg-violet-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <Instagram className="w-6 h-6 text-starWhite/70 group-hover:text-pink-500 transition-colors" />
+                        <div className="absolute inset-0 rounded-xl bg-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
                 <a
                         href="mailto:migasmps2005@gmail.com"
