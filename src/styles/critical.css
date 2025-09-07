@@ -1,0 +1,88 @@
+/* Critical CSS - Above the fold styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --deep-space: #030014;
+  --star-white: #ffffff;
+  --nebula-pink: #ff61d8;
+  --cosmic-blue: #4cc9f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--deep-space);
+  color: var(--star-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Critical animations */
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 20px rgba(255, 97, 216, 0.5), 0 0 40px rgba(76, 201, 240, 0.3); }
+  50% { text-shadow: 0 0 40px rgba(255, 97, 216, 0.8), 0 0 60px rgba(76, 201, 240, 0.5); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -30px, 0); }
+}
+
+.animate-glow {
+  animation: glow 1s ease-in-out infinite;
+  will-change: text-shadow;
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Critical layout */
+.min-h-screen { min-height: 100vh; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.text-center { text-align: center; }
+.relative { position: relative; }
+.fixed { position: fixed; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.z-10 { z-index: 10; }
+.pointer-events-none { pointer-events: none; }
+
+/* Critical typography */
+.text-7xl { font-size: 4.5rem; line-height: 1; }
+.text-8xl { font-size: 6rem; line-height: 1; }
+.font-bold { font-weight: 700; }
+.tracking-tighter { letter-spacing: -0.05em; }
+
+/* Critical gradients */
+.bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops)); }
+.from-nebula-pink { --tw-gradient-from: #ff61d8; --tw-gradient-to: rgba(255, 97, 216, 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+.to-cosmic-blue { --tw-gradient-to: #4cc9f0; }
+.text-transparent { color: transparent; }
+.bg-clip-text { background-clip: text; -webkit-background-clip: text; }
+
+/* Performance optimizations */
+.animate-glow,
+.animate-float-slow {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-glow,
+  .animate-float-slow {
+    animation: none !important;
+  }
+}

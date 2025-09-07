@@ -5,7 +5,7 @@ import {
   Instagram,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import NavBar from './components/NavBar';
 import ProjectCard from './components/ProjectCard';
 import ContactForm from './components/ContactForm';
@@ -17,7 +17,9 @@ import ScrollAnimation from './components/ScrollAnimation';
 import StaggerAnimation from './components/StaggerAnimation';
 import ParallaxScroll from './components/ParallaxScroll';
 import usePerformanceMonitor from './hooks/usePerformanceMonitor';
+import useServiceWorker from './hooks/useServiceWorker';
 import PerformanceFallback from './components/PerformanceFallback';
+import preloader from './utils/preloader';
 
 // Lazy load heavy components
 const EnhancedAbout = lazy(() => import('./components/EnhancedAbout'));
@@ -30,6 +32,37 @@ function App() {
   
   // Monitor performance
   usePerformanceMonitor();
+  
+  // Initialize service worker
+  const { isSupported: swSupported, preloadResources } = useServiceWorker();
+  
+  // Preload critical resources
+  useEffect(() => {
+    const preloadCritical = async () => {
+      try {
+        await preloader.preloadCritical();
+        
+        // Preload project images
+        const projectImages = projects
+          .map(project => project.image)
+          .filter(img => img.startsWith('http'));
+        
+        if (projectImages.length > 0) {
+          preloader.preloadImages(projectImages);
+        }
+        
+        // Preload skill icons
+        const skillIcons = skills.map(skill => skill.icon);
+        preloader.preloadImages(skillIcons);
+        
+        console.log('Critical resources preloaded successfully');
+      } catch (error) {
+        console.error('Preload failed:', error);
+      }
+    };
+    
+    preloadCritical();
+  }, []);
   
   // Project data with translations
   const projects = [
