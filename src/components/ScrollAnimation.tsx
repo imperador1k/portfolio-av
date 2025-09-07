@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion, useInView, useAnimation } from 'framer-motion';
 
 interface ScrollAnimationProps {
@@ -9,6 +9,7 @@ interface ScrollAnimationProps {
   distance?: number;
   className?: string;
   once?: boolean;
+  reducedMotion?: boolean;
 }
 
 const ScrollAnimation: React.FC<ScrollAnimationProps> = ({
@@ -18,21 +19,45 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({
   duration = 0.4,
   distance = 50,
   className = '',
-  once = false
+  once = false,
+  reducedMotion = false
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once });
+  const [shouldAnimate, setShouldAnimate] = useState(true);
+  const isInView = useInView(ref, { once, margin: "0px 0px -100px 0px" });
   const controls = useAnimation();
 
   useEffect(() => {
-    if (isInView) {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isLowEndDevice = () => {
+      const connection = (navigator as any).connection;
+      const hardwareConcurrency = navigator.hardwareConcurrency || 4;
+      return (
+        connection?.effectiveType === 'slow-2g' ||
+        connection?.effectiveType === '2g' ||
+        hardwareConcurrency <= 2
+      );
+    };
+
+    setShouldAnimate(!prefersReducedMotion && !reducedMotion && !isLowEndDevice());
+  }, [reducedMotion]);
+
+  useEffect(() => {
+    if (isInView && shouldAnimate) {
       controls.start('visible');
-    } else if (!once) {
+    } else if (!once && shouldAnimate) {
       controls.start('hidden');
+    } else if (!shouldAnimate) {
+      controls.start('visible');
     }
-  }, [isInView, controls, once]);
+  }, [isInView, controls, once, shouldAnimate]);
 
   const getInitialVariant = () => {
+    if (!shouldAnimate) {
+      return { opacity: 1, y: 0, x: 0, scale: 1, rotate: 0 };
+    }
+
     switch (direction) {
       case 'up':
         return { opacity: 0, y: distance };
@@ -54,33 +79,18 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({
   };
 
   const getVisibleVariant = () => {
-    switch (direction) {
-      case 'up':
-      case 'down':
-        return { opacity: 1, y: 0 };
-      case 'left':
-      case 'right':
-        return { opacity: 1, x: 0 };
-      case 'fade':
-        return { opacity: 1 };
-      case 'scale':
-        return { opacity: 1, scale: 1 };
-      case 'rotate':
-        return { opacity: 1, rotate: 0, scale: 1 };
-      default:
-        return { opacity: 1, y: 0 };
-    }
+    return { opacity: 1, y: 0, x: 0, scale: 1, rotate: 0 };
   };
 
   const variants = {
     hidden: getInitialVariant(),
     visible: {
       ...getVisibleVariant(),
-      transition: {
-        duration,
-        delay,
+      transition: shouldAnimate ? {
+        duration: duration * (shouldAnimate ? 1 : 0.1),
+        delay: shouldAnimate ? delay : 0,
         ease: [0.25, 0.46, 0.45, 0.94] as const,
-      },
+      } : { duration: 0 },
     },
   };
 

@@ -1,30 +1,35 @@
 import {
   Github,
-  Linkedin,
   Mail,
   Rocket,
   Instagram,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { lazy, Suspense } from 'react';
 import NavBar from './components/NavBar';
 import ProjectCard from './components/ProjectCard';
 import ContactForm from './components/ContactForm';
 import SkillCard from './components/SkillCard';
 import StarField from './components/StarField';
-import { XIcon } from './components/XIcon';
 import MeteorShower from './components/MeteorShower';
-import EnhancedAbout from './components/EnhancedAbout';
-import ExperienceCarousel from './components/ExperienceCarousel';
 import TypewriterText from './components/TypewriterText';
 import ScrollAnimation from './components/ScrollAnimation';
 import StaggerAnimation from './components/StaggerAnimation';
 import ParallaxScroll from './components/ParallaxScroll';
+import usePerformanceMonitor from './hooks/usePerformanceMonitor';
+import PerformanceFallback from './components/PerformanceFallback';
 
-import DownloadCV from './components/DownloadCV';
+// Lazy load heavy components
+const EnhancedAbout = lazy(() => import('./components/EnhancedAbout'));
+const ExperienceCarousel = lazy(() => import('./components/ExperienceCarousel'));
+const DownloadCV = lazy(() => import('./components/DownloadCV'));
 
 
 function App() {
   const { t } = useTranslation();
+  
+  // Monitor performance
+  usePerformanceMonitor();
   
   // Project data with translations
   const projects = [
@@ -32,7 +37,7 @@ function App() {
       id: 1,
       title: t('projects.dietFitnessApp.title'),
       description: t('projects.dietFitnessApp.description'),
-      image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=400",
       tags: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Express', 'JWT', 'Bcrypt'],
       liveLink: "#",
       codeLink: "#",
@@ -44,8 +49,8 @@ function App() {
       features: t('projects.dietFitnessApp.features', { returnObjects: true }) as string[],
       achievements: t('projects.dietFitnessApp.achievements', { returnObjects: true }) as string[],
       screenshots: [
-        "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=400",
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=400"
       ],
       techStack: {
         frontend: ['React Native', 'Redux', 'React Navigation', 'Styled Components'],
@@ -75,8 +80,8 @@ function App() {
       features: t('projects.smartShoppingApp.features', { returnObjects: true }) as string[],
       achievements: t('projects.smartShoppingApp.achievements', { returnObjects: true }) as string[],
       screenshots: [
-        "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&q=80&w=400",
+        "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&q=80&w=400"
       ],
       techStack: {
         frontend: ['React Native', 'Redux', 'React Navigation', 'Native Base'],
@@ -106,8 +111,8 @@ function App() {
       features: t('projects.moinhoWebsite.features', { returnObjects: true }) as string[],
       achievements: t('projects.moinhoWebsite.achievements', { returnObjects: true }) as string[],
       screenshots: [
-        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1520637836862-4d197d17c93a?auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=400",
+        "https://images.unsplash.com/photo-1520637836862-4d197d17c93a?auto=format&fit=crop&q=80&w=400"
       ],
       techStack: {
         frontend: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'jQuery'],
@@ -137,8 +142,8 @@ function App() {
       features: t('projects.vacationApartmentWebsite.features', { returnObjects: true }) as string[],
       achievements: t('projects.vacationApartmentWebsite.achievements', { returnObjects: true }) as string[],
       screenshots: [
-        "https://images.unsplash.com/photo-1520637836862-4d197d17c93a?auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1520637836862-4d197d17c93a?auto=format&fit=crop&q=80&w=400",
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=400"
       ],
       techStack: {
         frontend: ['WordPress', 'PHP', 'CSS3', 'JavaScript', 'jQuery'],
@@ -156,7 +161,7 @@ function App() {
       id: 5,
       title: t('projects.burgerRestaurantWebsite.title'),
       description: t('projects.burgerRestaurantWebsite.description'),
-      image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&q=80&w=400",
       tags: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'PHP', 'MySQL'],
       liveLink: "#",
       codeLink: "#",
@@ -168,8 +173,8 @@ function App() {
       features: t('projects.burgerRestaurantWebsite.features', { returnObjects: true }) as string[],
       achievements: t('projects.burgerRestaurantWebsite.achievements', { returnObjects: true }) as string[],
       screenshots: [
-        "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&q=80&w=400",
+        "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&q=80&w=400"
       ],
       techStack: {
         frontend: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'jQuery'],
@@ -199,8 +204,8 @@ function App() {
       features: t('projects.personalTrainingApp.features', { returnObjects: true }) as string[],
       achievements: t('projects.personalTrainingApp.achievements', { returnObjects: true }) as string[],
       screenshots: [
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80"
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=400",
+        "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=400"
       ],
       techStack: {
         frontend: ['React Native', 'Expo', 'Redux', 'React Navigation'],
@@ -364,7 +369,9 @@ function App() {
 
       {/* Enhanced About Section */}
       <section id="about">
-        <EnhancedAbout />
+        <Suspense fallback={<PerformanceFallback height="h-96" />}>
+          <EnhancedAbout />
+        </Suspense>
       </section>
 
       {/* Projects Section */}
@@ -391,7 +398,9 @@ function App() {
 
       {/* Experience Carousel */}
       <section id="experience">
-        <ExperienceCarousel />
+        <Suspense fallback={<PerformanceFallback height="h-64" />}>
+          <ExperienceCarousel />
+        </Suspense>
       </section>
 
       {/* App Store Section */}
@@ -499,7 +508,7 @@ function App() {
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                           <a
-                            href="#"
+                            href="https://miguelstore.vercel.app/" target="_blank"
                             className="group relative bg-gradient-to-r from-nebulaPink to-cosmicBlue text-white px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-300 font-medium shadow-lg shadow-nebulaPink/25 hover:shadow-nebulaPink/40"
                           >
                             <div className="flex items-center justify-center space-x-3">
@@ -559,7 +568,9 @@ function App() {
       </section>
 
       {/* Download CV Section */}
-      <DownloadCV />
+      <Suspense fallback={<PerformanceFallback height="h-32" />}>
+        <DownloadCV />
+      </Suspense>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 relative z-10">
