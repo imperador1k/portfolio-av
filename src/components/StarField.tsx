@@ -11,18 +11,22 @@ const StarField = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Performance detection
-    const isLowEndDevice = () => {
+    // Enhanced performance detection
+    const getDeviceCapabilities = () => {
       const connection = (navigator as any).connection;
       const hardwareConcurrency = navigator.hardwareConcurrency || 4;
-      const memory = (performance as any).memory?.jsHeapSizeLimit || 1073741824; // 1GB default
+      const memory = (performance as any).memory?.jsHeapSizeLimit || 1073741824;
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const isLowEndConnection = connection?.effectiveType === 'slow-2g' || connection?.effectiveType === '2g';
+      const isLowEndHardware = hardwareConcurrency <= 2 || memory < 1073741824;
       
-      return (
-        connection?.effectiveType === 'slow-2g' ||
-        connection?.effectiveType === '2g' ||
-        hardwareConcurrency <= 2 ||
-        memory < 1073741824 // Less than 1GB
-      );
+      return {
+        isMobile,
+        isLowEndDevice: isLowEndConnection || isLowEndHardware || isMobile,
+        starCount: isMobile ? 50 : (isLowEndHardware ? 100 : 150),
+        fps: isMobile ? 20 : (isLowEndHardware ? 30 : 60),
+        enableAnimations: !isLowEndConnection && !isMobile
+      };
     };
 
     const setCanvasSize = () => {
@@ -33,9 +37,9 @@ const StarField = () => {
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
+    const deviceCapabilities = getDeviceCapabilities();
     const stars: { x: number; y: number; z: number; size: number }[] = [];
-    // Adaptive star count based on device performance
-    const numStars = isLowEndDevice() ? 100 : 200;
+    const numStars = deviceCapabilities.starCount;
     const maxDepth = 1000;
 
     for (let i = 0; i < numStars; i++) {
@@ -49,7 +53,7 @@ const StarField = () => {
 
     let animationFrame: number;
     let lastTime = 0;
-    const targetFPS = isLowEndDevice() ? 30 : 60;
+    const targetFPS = deviceCapabilities.fps;
     const frameInterval = 1000 / targetFPS;
 
     const animate = (currentTime: number) => {
@@ -86,11 +90,11 @@ const StarField = () => {
       animationFrame = requestAnimationFrame(animate);
     };
 
-    // Start animation only when visible
+    // Start animation only when visible and device can handle it
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && deviceCapabilities.enableAnimations) {
           animate(0);
         } else {
           cancelAnimationFrame(animationFrame);

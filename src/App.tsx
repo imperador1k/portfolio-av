@@ -18,6 +18,7 @@ import StaggerAnimation from './components/StaggerAnimation';
 import ParallaxScroll from './components/ParallaxScroll';
 import usePerformanceMonitor from './hooks/usePerformanceMonitor';
 import useServiceWorker from './hooks/useServiceWorker';
+import useDeviceOptimization from './hooks/useDeviceOptimization';
 import PerformanceFallback from './components/PerformanceFallback';
 import preloader from './utils/preloader';
 
@@ -33,36 +34,51 @@ function App() {
   // Monitor performance
   usePerformanceMonitor();
   
+  // Get device optimization settings
+  const deviceCapabilities = useDeviceOptimization();
+  
   // Initialize service worker
   const { isSupported: swSupported, preloadResources } = useServiceWorker();
   
-  // Preload critical resources
+  // Preload critical resources with device adaptation
   useEffect(() => {
     const preloadCritical = async () => {
       try {
-        await preloader.preloadCritical();
-        
-        // Preload project images
-        const projectImages = projects
-          .map(project => project.image)
-          .filter(img => img.startsWith('http'));
-        
-        if (projectImages.length > 0) {
-          preloader.preloadImages(projectImages);
+        // Only preload if device can handle it
+        if (deviceCapabilities.preloadImages) {
+          await preloader.preloadCritical();
+          
+          // Preload project images with quality adaptation
+          const projectImages = projects
+            .map(project => project.image)
+            .filter(img => img.startsWith('http'))
+            .map(img => {
+              // Add quality parameter based on device
+              const url = new URL(img);
+              url.searchParams.set('q', deviceCapabilities.imageQuality.toString());
+              return url.toString();
+            });
+          
+          if (projectImages.length > 0) {
+            preloader.preloadImages(projectImages);
+          }
+          
+          // Preload skill icons
+          const skillIcons = skills.map(skill => skill.icon);
+          preloader.preloadImages(skillIcons);
         }
         
-        // Preload skill icons
-        const skillIcons = skills.map(skill => skill.icon);
-        preloader.preloadImages(skillIcons);
-        
-        console.log('Critical resources preloaded successfully');
+        console.log('Critical resources preloaded successfully', {
+          device: deviceCapabilities.isMobile ? 'mobile' : 'desktop',
+          capabilities: deviceCapabilities
+        });
       } catch (error) {
         console.error('Preload failed:', error);
       }
     };
     
     preloadCritical();
-  }, []);
+  }, [deviceCapabilities]);
   
   // Project data with translations
   const projects = [
@@ -319,7 +335,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-deepSpace text-white relative overflow-hidden">
-      <StarField />
+      {/* Conditional rendering based on device capabilities */}
+      {deviceCapabilities.enableHeavyAnimations && <StarField />}
       <MeteorShower />
 
       <NavBar />

@@ -105,6 +105,35 @@
   }
 }
 
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .animate-glow {
+    animation-duration: 2s; /* Slower on mobile */
+  }
+  
+  .animate-float-slow {
+    animation-duration: 8s; /* Slower on mobile */
+  }
+  
+  .animate-bounce-slow {
+    animation-duration: 4s; /* Slower on mobile */
+  }
+}
+
+/* Low-end device optimizations */
+@media (max-width: 480px) {
+  .animate-glow,
+  .animate-float-slow,
+  .animate-bounce-slow {
+    animation: none !important; /* Disable animations on very small screens */
+  }
+  
+  /* Reduce text shadows for better performance */
+  .animate-glow {
+    text-shadow: 0 0 10px rgba(255, 97, 216, 0.3) !important;
+  }
+}
+
 /* Add a custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

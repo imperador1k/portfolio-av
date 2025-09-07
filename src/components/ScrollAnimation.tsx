@@ -28,19 +28,22 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({
   const controls = useAnimation();
 
   useEffect(() => {
-    // Check for reduced motion preference
+    // Enhanced device detection
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isLowEndDevice = () => {
-      const connection = (navigator as any).connection;
-      const hardwareConcurrency = navigator.hardwareConcurrency || 4;
-      return (
-        connection?.effectiveType === 'slow-2g' ||
-        connection?.effectiveType === '2g' ||
-        hardwareConcurrency <= 2
-      );
-    };
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const connection = (navigator as any).connection;
+    const hardwareConcurrency = navigator.hardwareConcurrency || 4;
+    const memory = (performance as any).memory?.jsHeapSizeLimit || 1073741824;
+    
+    const isLowEndDevice = (
+      connection?.effectiveType === 'slow-2g' ||
+      connection?.effectiveType === '2g' ||
+      hardwareConcurrency <= 2 ||
+      memory < 1073741824 ||
+      isMobile
+    );
 
-    setShouldAnimate(!prefersReducedMotion && !reducedMotion && !isLowEndDevice());
+    setShouldAnimate(!prefersReducedMotion && !reducedMotion && !isLowEndDevice);
   }, [reducedMotion]);
 
   useEffect(() => {
