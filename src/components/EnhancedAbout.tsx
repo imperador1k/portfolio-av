@@ -140,12 +140,7 @@ const EnhancedAbout = () => {
     setCurrentFact((prev) => (prev - 1 + funFacts.length) % funFacts.length);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentFact((prev) => (prev + 1) % funFacts.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  // Removed auto-carousel - only manual navigation
 
   return (
     <section id="about" className="py-20 px-4 relative z-10">
@@ -357,11 +352,11 @@ const EnhancedAbout = () => {
                       <div className="relative">
                         <div className={`absolute inset-0 bg-gradient-to-br ${funFacts[currentFact].color} rounded-xl opacity-20 blur-xl`}></div>
                         <div className="relative bg-deepSpace/80 border border-starWhite/20 rounded-xl p-4 backdrop-blur-sm">
-                          <div className="aspect-square relative overflow-hidden rounded-lg">
+                          <div className="w-full h-64 relative overflow-hidden rounded-lg">
                             <img 
                               src={funFacts[currentFact].image}
                               alt={funFacts[currentFact].text}
-                              className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                              className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-deepSpace/60 via-transparent to-transparent"></div>
                             <div className="absolute top-4 right-4 text-4xl animate-bounce">

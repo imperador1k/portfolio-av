@@ -342,28 +342,22 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
             className="relative w-full h-full sm:h-auto max-w-[95vw] sm:max-w-[90vw] md:max-w-[85vw] lg:max-w-[80vw] xl:max-w-[75vw] 2xl:max-w-[70vw] max-h-[98vh] sm:max-h-[95vh] md:max-h-[90vh] bg-deepSpace/98 backdrop-blur-2xl border border-starWhite/30 rounded-none sm:rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl shadow-nebulaPink/20"
             data-modal="true"
             initial={{ 
-              scale: 0.8, 
+              scale: 0.9, 
               opacity: 0, 
-              y: 50,
-              rotateX: -15,
-              rotateY: 5
+              y: 20
             }}
             animate={{ 
               scale: 1, 
               opacity: 1, 
-              y: 0,
-              rotateX: 0,
-              rotateY: 0
+              y: 0
             }}
             exit={{ 
-              scale: 0.9, 
+              scale: 0.95, 
               opacity: 0, 
-              y: -30,
-              rotateX: 15,
-              rotateY: -5
+              y: -10
             }}
             transition={{ 
-              duration: 0.5, 
+              duration: 0.2, 
               ease: [0.25, 0.46, 0.45, 0.94]
             }}
           >
@@ -373,7 +367,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
               onClick={onClose}
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.3, delay: 0.2 }}
+              transition={{ duration: 0.15, delay: 0.1 }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >

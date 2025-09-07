@@ -252,18 +252,18 @@ const NavBar = () => {
 
               {/* Enhanced Mobile Menu Button */}
               <motion.button
-                className="lg:hidden relative p-2 bg-deepSpace/50 rounded-lg border border-starWhite/10 hover:border-nebulaPink/50 transition-all duration-300 backdrop-blur-sm overflow-hidden group"
+                className="lg:hidden relative p-2 bg-deepSpace/50 rounded-lg border border-starWhite/10 hover:border-nebulaPink/50 transition-all duration-150 backdrop-blur-sm overflow-hidden group"
                 onClick={() => {
                   setRippleEffect(true);
-                  setTimeout(() => setRippleEffect(false), 600);
+                  setTimeout(() => setRippleEffect(false), 300);
                   setIsMobileMenuOpen(!isMobileMenuOpen);
                 }}
                 whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: "0 8px 25px rgba(236, 72, 153, 0.2)"
+                  scale: 1.02,
+                  boxShadow: "0 4px 15px rgba(236, 72, 153, 0.15)"
                 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.1 }}
               >
                 {/* Animated Background Glow */}
                 <motion.div
@@ -273,7 +273,7 @@ const NavBar = () => {
                     opacity: isMobileMenuOpen ? 1 : 0,
                     scale: isMobileMenuOpen ? 1 : 0.8
                   }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.15 }}
                 />
                 
                 {/* Menu Icon */}
@@ -282,20 +282,20 @@ const NavBar = () => {
                     {isMobileMenuOpen ? (
                       <motion.div
                         key="close"
-                        initial={{ rotate: -90, opacity: 0 }}
+                        initial={{ rotate: -45, opacity: 0 }}
                         animate={{ rotate: 0, opacity: 1 }}
-                        exit={{ rotate: 90, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
+                        exit={{ rotate: 45, opacity: 0 }}
+                        transition={{ duration: 0.1 }}
                       >
                         <X className="w-5 h-5 text-starWhite drop-shadow-lg" />
                       </motion.div>
                     ) : (
                       <motion.div
                         key="menu"
-                        initial={{ rotate: 90, opacity: 0 }}
+                        initial={{ rotate: 45, opacity: 0 }}
                         animate={{ rotate: 0, opacity: 1 }}
-                        exit={{ rotate: -90, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
+                        exit={{ rotate: -45, opacity: 0 }}
+                        transition={{ duration: 0.1 }}
                       >
                         <Menu className="w-5 h-5 text-starWhite drop-shadow-lg" />
                       </motion.div>

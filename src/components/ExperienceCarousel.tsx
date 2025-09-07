@@ -45,10 +45,7 @@ const ExperienceCarousel = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + experiences.length) % experiences.length);
   };
 
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  // Removed auto-carousel - only manual navigation
 
   return (
     <section id="experience" className="py-20 px-4 relative z-10">

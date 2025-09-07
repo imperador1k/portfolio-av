@@ -468,7 +468,7 @@ function App() {
           </ScrollAnimation>
 
           {/* App Store Card */}
-          <ScrollAnimation direction="scale" delay={0.3} duration={0.6}>
+          <ScrollAnimation direction="scale" delay={0.1} duration={0.3}>
             <div className="relative max-w-4xl mx-auto">
               {/* Background Effects */}
               <div className="absolute inset-0 bg-gradient-to-r from-nebulaPink/10 via-cosmicBlue/10 to-violet-500/10 rounded-3xl blur-xl"></div>
