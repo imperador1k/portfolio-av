@@ -66,14 +66,26 @@ const LanguageSelector = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            initial={{ 
+              opacity: 0, 
+              y: isMobile ? 10 : -10, 
+              scale: 0.95 
+            }}
+            animate={{ 
+              opacity: 1, 
+              y: 0, 
+              scale: 1 
+            }}
+            exit={{ 
+              opacity: 0, 
+              y: isMobile ? 10 : -10, 
+              scale: 0.95 
+            }}
             transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className={`absolute top-full mt-2 w-48 sm:w-52 lg:w-48 bg-deepSpace/95 backdrop-blur-xl border border-starWhite/20 rounded-xl shadow-2xl shadow-nebulaPink/10 overflow-hidden z-50 max-h-80 overflow-y-auto ${
+            className={`absolute w-48 sm:w-52 lg:w-48 bg-deepSpace/95 backdrop-blur-xl border border-starWhite/20 rounded-xl shadow-2xl shadow-nebulaPink/10 overflow-hidden z-50 max-h-80 overflow-y-auto ${
               isMobile 
-                ? 'left-1/2 transform -translate-x-1/2 max-w-[calc(100vw-2rem)]' 
-                : 'right-0'
+                ? 'bottom-full mb-2 left-1/2 transform -translate-x-1/2 max-w-[calc(100vw-2rem)]' 
+                : 'top-full mt-2 right-0'
             }`}
           >
             {/* Background Effects */}

@@ -228,7 +228,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
             }}
             onClick={onClose}
             transition={{ 
-              duration: 0.4
+              duration: 0.2
             }}
           >
             {/* Multi-layer Background Effects */}
@@ -238,8 +238,8 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 1.2, opacity: 0, rotate: -5 }}
               transition={{ 
-                duration: 0.5, 
-                delay: 0.1
+                duration: 0.2, 
+                delay: 0.05
               }}
             />
             
@@ -280,9 +280,9 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                   x: Math.random() * 100 - 50
                 }}
                 transition={{ 
-                  duration: 0.8, 
-                  delay: 0.2 + (i * 0.05),
-                  ease: [0.25, 0.46, 0.45, 0.94]
+                  duration: 0.3, 
+                  delay: 0.1 + (i * 0.02),
+                  ease: "easeOut"
                 }}
               />
             ))}
@@ -292,10 +292,8 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
               className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-r from-nebulaPink/20 to-cosmicBlue/20 rounded-full blur-3xl"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ 
-                scale: [0, 1, 1.2, 1],
-                opacity: [0, 0.3, 0.5, 0.3],
-                x: [0, 20, -10, 0],
-                y: [0, -20, 10, 0]
+                scale: 1,
+                opacity: 0.3
               }}
               exit={{ 
                 scale: 0, 
@@ -305,20 +303,16 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                 rotate: -180
               }}
               transition={{ 
-                duration: 4,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut"
+                duration: 0.3,
+                ease: "easeOut"
               }}
             />
             <motion.div
               className="absolute bottom-1/3 right-1/3 w-24 h-24 bg-gradient-to-r from-violet-500/20 to-emerald-500/20 rounded-full blur-2xl"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ 
-                scale: [0, 1, 1.3, 1],
-                opacity: [0, 0.4, 0.6, 0.4],
-                x: [0, -15, 25, 0],
-                y: [0, 15, -25, 0]
+                scale: 1,
+                opacity: 0.4
               }}
               exit={{ 
                 scale: 0, 
@@ -328,11 +322,9 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                 rotate: 180
               }}
               transition={{ 
-                duration: 5,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut",
-                delay: 1
+                duration: 0.3,
+                ease: "easeOut",
+                delay: 0.1
               }}
             />
           </motion.div>
@@ -398,7 +390,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                   className="flex flex-wrap items-center gap-2 sm:gap-3"
                   initial={{ y: 10, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
+                  transition={{ duration: 0.2, delay: 0.1 }}
                 >
                   <span className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium border ${getStatusColor(project.status)}`}>
                     {project.status}
@@ -411,7 +403,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                   className="text-xs sm:text-sm md:text-base lg:text-lg text-starWhite/80 leading-relaxed"
                   initial={{ y: 10, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.4, delay: 0.3 }}
+                  transition={{ duration: 0.2, delay: 0.15 }}
                 >
                   {project.description}
                 </motion.p>
@@ -428,7 +420,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                     className="relative rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden bg-deepSpace/50 border border-starWhite/10"
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.4, delay: 0.2 }}
+                    transition={{ duration: 0.2, delay: 0.1 }}
                   >
                     <img
                       src={project.image}
@@ -442,13 +434,12 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                     <motion.div
                       className="absolute top-2 right-2 sm:top-4 sm:right-4 w-6 h-6 sm:w-8 sm:h-8 bg-nebulaPink/20 rounded-full blur-sm"
                       animate={{ 
-                        scale: [1, 1.2, 1],
-                        opacity: [0.3, 0.6, 0.3]
+                        scale: 1,
+                        opacity: 0.4
                       }}
                       transition={{ 
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut"
+                        duration: 0.2,
+                        ease: "easeOut"
                       }}
                     />
                   </motion.div>
@@ -458,7 +449,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                     className="bg-deepSpace/50 rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 border border-starWhite/10"
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.4, delay: 0.3 }}
+                    transition={{ duration: 0.2, delay: 0.15 }}
                   >
                     <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3 md:mb-4 flex items-center space-x-2">
                       <Zap className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-nebulaPink flex-shrink-0" />
@@ -471,7 +462,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                           className="flex items-start space-x-2 sm:space-x-3 p-2 sm:p-3 bg-deepSpace/30 rounded-lg sm:rounded-xl border border-starWhite/5"
                           initial={{ x: -20, opacity: 0 }}
                           animate={{ x: 0, opacity: 1 }}
-                          transition={{ duration: 0.3, delay: 0.4 + (index * 0.1) }}
+                          transition={{ duration: 0.15, delay: 0.2 + (index * 0.05) }}
                         >
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-nebulaPink rounded-full mt-1 sm:mt-1.5 md:mt-2 flex-shrink-0"></div>
                           <span className="text-starWhite/80 text-xs sm:text-sm leading-relaxed">{feature}</span>
@@ -485,7 +476,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                     className="bg-deepSpace/50 rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 border border-starWhite/10"
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.4, delay: 0.4 }}
+                    transition={{ duration: 0.2, delay: 0.2 }}
                   >
                     <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3 md:mb-4 flex items-center space-x-2">
                       <Award className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-cosmicBlue flex-shrink-0" />
@@ -498,7 +489,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                           className="p-2 sm:p-3 md:p-4 bg-deepSpace/30 rounded-lg sm:rounded-xl border border-starWhite/5"
                           initial={{ x: -20, opacity: 0 }}
                           animate={{ x: 0, opacity: 1 }}
-                          transition={{ duration: 0.3, delay: 0.5 + (index * 0.1) }}
+                          transition={{ duration: 0.15, delay: 0.25 + (index * 0.05) }}
                         >
                           <p className="text-starWhite/80 text-xs sm:text-sm leading-relaxed">{challenge}</p>
                         </motion.div>
@@ -514,7 +505,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                     className="bg-deepSpace/50 rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 border border-starWhite/10"
                     initial={{ x: 20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.4, delay: 0.3 }}
+                    transition={{ duration: 0.2, delay: 0.15 }}
                   >
                     <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-2 sm:mb-3 md:mb-4 text-white">{t('projects.projectDetails.status')} Details</h3>
                     <div className="space-y-2 sm:space-y-3 md:space-y-4">
@@ -538,7 +529,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                     className="bg-deepSpace/50 rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 border border-starWhite/10"
                     initial={{ x: 20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.4, delay: 0.4 }}
+                    transition={{ duration: 0.2, delay: 0.2 }}
                   >
                     <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-2 sm:mb-3 md:mb-4 text-white">{t('projects.projectDetails.techStack')}</h3>
                     <div className="space-y-2 sm:space-y-3 md:space-y-4">
@@ -552,7 +543,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                                 className="px-2 sm:px-2.5 md:px-3 py-1 bg-nebulaPink/10 text-nebulaPink text-xs rounded-full border border-nebulaPink/20"
                                 initial={{ scale: 0, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
-                                transition={{ duration: 0.2, delay: 0.5 + (index * 0.1) + (techIndex * 0.05) }}
+                                transition={{ duration: 0.1, delay: 0.25 + (index * 0.05) + (techIndex * 0.02) }}
                               >
                                 {tech}
                               </motion.span>
@@ -568,7 +559,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                     className="space-y-3 sm:space-y-4"
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.4, delay: 0.5 }}
+                    transition={{ duration: 0.2, delay: 0.25 }}
                   >
                     {project.liveUrl && (
                       <motion.a
