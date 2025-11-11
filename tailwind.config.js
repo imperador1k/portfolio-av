@@ -10,6 +10,12 @@ export default {
         nebulaPink: '#FF61D8',
         cosmicBlue: '#4CC9F0',
       },
+      fontFamily: {
+        'sans': ['Montserrat', 'Poppins', 'Raleway', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif'],
+        'raleway': ['Raleway', 'sans-serif'],
+      },
       animation: {
         'meteor': 'meteor 1s linear forwards',
         'float': 'float 6s ease-in-out infinite',

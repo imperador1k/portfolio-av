@@ -78,23 +78,24 @@
     "testimonialsList": [
       {
         "name": "Maria Silva",
-        "role": "Geschäftsinhaberin",
-        "content": "Miguel lieferte eine außergewöhnliche Website für mein Unterkunftsgeschäft. Professionell, responsiv und übertraf alle Erwartungen!"
+        "role": "Inhaberin, Casa Silva Holiday Homes",
+        "content": "Die Zusammenarbeit mit Miguel war ein echter Game-Changer für unser Unternehmen. Er verstand genau, was wir brauchten, und lieferte eine Website, die nicht nur fantastisch aussieht, sondern auch Kunden bringt. Unsere Buchungen sind seit dem Start um 70% gestiegen!"
       },
       {
         "name": "João Santos",
-        "role": "Restaurant Manager",
-        "content": "Die Burger-Restaurant-Website, die Miguel erstellt hat, erhöhte unsere Online-Bestellungen um 300%. Unglaubliche Arbeit und großartige Kommunikation!"
+        "role": "Geschäftsführer, Santos Burger House",
+        "content": "Ich war skeptisch, eine neue Website zu bekommen, aber Miguel hat meine Meinung komplett geändert. Das Online-Bestellsystem, das er für uns gebaut hat, ist so einfach zu bedienen, dass unser Personal keine Schulung benötigte. Unsere Kunden lieben es auch - wir haben einen Anstieg der Online-Bestellungen um 300% gesehen!"
       },
       {
         "name": "Ana Costa",
-        "role": "Fitness-Enthusiastin",
-        "content": "Die Personal-Training-App, die Miguel entwickelt hat, ist unglaublich. Es ist wie einen Personal Trainer in der Tasche zu haben!"
+        "role": "Personal Trainer & Fitness Coach",
+        "content": "Als Fitness-Professionelle brauchte ich eine App, die meinen Kunden wirklich helfen würde. Miguel hat nicht nur eine App gebaut - er hat ein Werkzeug geschaffen, das meine Kunden wirklich gerne nutzen. Die Funktionen zur Trainingsverfolgung und Fortschrittsvisualisierung haben meine Arbeit viel einfacher gemacht."
       }
     ]
   },
   "projects": {
     "title": "Ausgewählte Projekte",
+    "disclaimer": "Hinweis: Aus Datenschutz- und Rechtegründen kann ich keine direkten Links zu diesen Websites bereitstellen. Die Seiten werden ständig mit neuen Funktionen und Verbesserungen aktualisiert. Wenn Sie spezifische Beispiele meiner Arbeit sehen möchten, kontaktieren Sie mich bitte direkt.",
     "viewDetails": "Details Anzeigen",
     "liveDemo": "Live Demo",
     "viewCode": "Code Anzeigen",

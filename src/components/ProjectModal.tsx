@@ -177,7 +177,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
     <AnimatePresence mode="sync">
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex items-center justify-center p-1 sm:p-2 md:p-4"
+          className="fixed inset-0 z-[99999] flex items-center justify-center p-1 sm:p-2 md:p-4"
           data-modal="true"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -355,7 +355,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
           >
             {/* Fixed Close Button - Always Visible and Properly Positioned */}
             <motion.button
-              className="fixed top-2 right-2 sm:top-4 sm:right-4 z-[10000] p-2 sm:p-3 bg-red-500/95 hover:bg-red-500 rounded-full border-2 border-red-400 hover:border-red-300 transition-all duration-300 backdrop-blur-sm shadow-lg shadow-red-500/40 hover:shadow-red-500/60"
+              className="fixed top-2 right-2 sm:top-4 sm:right-4 z-[100000] p-2 sm:p-3 bg-red-500/95 hover:bg-red-500 rounded-full border-2 border-red-400 hover:border-red-300 transition-all duration-300 backdrop-blur-sm shadow-lg shadow-red-500/40 hover:shadow-red-500/60"
               onClick={onClose}
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}

@@ -1,5 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { motion, useInView, useAnimation } from 'framer-motion';
+import useDeviceOptimization from '../hooks/useDeviceOptimization';
+import type { Variants } from 'framer-motion';
 
 interface ScrollAnimationProps {
   children: React.ReactNode;
@@ -16,35 +18,27 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({
   children,
   direction = 'up',
   delay = 0,
-  duration = 0.4,
-  distance = 50,
+  duration = 0.3, // Reduced duration for lighter feel
+  distance = 20, // Reduced distance for subtler effect
   className = '',
-  once = false,
+  once = true, // Changed to true to reduce re-animations
   reducedMotion = false
 }) => {
   const ref = useRef(null);
   const [shouldAnimate, setShouldAnimate] = useState(true);
-  const isInView = useInView(ref, { once, margin: "0px 0px -100px 0px" });
+  const isInView = useInView(ref, { once, margin: "-50px 0px -50px 0px" }); // Reduced margin
   const controls = useAnimation();
+  const deviceCapabilities = useDeviceOptimization();
+
+  // Simplified device detection
+  const shouldEnableAnimation = useMemo(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return !prefersReducedMotion && !reducedMotion && deviceCapabilities.enableAnimations;
+  }, [reducedMotion, deviceCapabilities.enableAnimations]);
 
   useEffect(() => {
-    // Enhanced device detection
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    const connection = (navigator as any).connection;
-    const hardwareConcurrency = navigator.hardwareConcurrency || 4;
-    const memory = (performance as any).memory?.jsHeapSizeLimit || 1073741824;
-    
-    const isLowEndDevice = (
-      connection?.effectiveType === 'slow-2g' ||
-      connection?.effectiveType === '2g' ||
-      hardwareConcurrency <= 2 ||
-      memory < 1073741824 ||
-      isMobile
-    );
-
-    setShouldAnimate(!prefersReducedMotion && !reducedMotion && !isLowEndDevice);
-  }, [reducedMotion]);
+    setShouldAnimate(shouldEnableAnimation);
+  }, [shouldEnableAnimation]);
 
   useEffect(() => {
     if (isInView && shouldAnimate) {
@@ -56,46 +50,57 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({
     }
   }, [isInView, controls, once, shouldAnimate]);
 
-  const getInitialVariant = () => {
+  // Much simpler and lighter variants
+  const variants: Variants = useMemo(() => {
     if (!shouldAnimate) {
-      return { opacity: 1, y: 0, x: 0, scale: 1, rotate: 0 };
+      return {
+        hidden: { opacity: 1, y: 0, x: 0, scale: 1, rotate: 0 },
+        visible: { opacity: 1, y: 0, x: 0, scale: 1, rotate: 0 }
+      };
     }
 
-    switch (direction) {
-      case 'up':
-        return { opacity: 0, y: distance };
-      case 'down':
-        return { opacity: 0, y: -distance };
-      case 'left':
-        return { opacity: 0, x: distance };
-      case 'right':
-        return { opacity: 0, x: -distance };
-      case 'fade':
-        return { opacity: 0 };
-      case 'scale':
-        return { opacity: 0, scale: 0.8 };
-      case 'rotate':
-        return { opacity: 0, rotate: -10, scale: 0.9 };
-      default:
-        return { opacity: 0, y: distance };
-    }
-  };
+    const hiddenVariant = (() => {
+      switch (direction) {
+        case 'up':
+          return { opacity: 0, y: distance };
+        case 'down':
+          return { opacity: 0, y: -distance };
+        case 'left':
+          return { opacity: 0, x: distance };
+        case 'right':
+          return { opacity: 0, x: -distance };
+        case 'fade':
+          return { opacity: 0 };
+        case 'scale':
+          return { opacity: 0, scale: 0.95 }; // Subtler scale
+        case 'rotate':
+          return { opacity: 0, rotate: -3, scale: 0.98 }; // Subtler rotation
+        default:
+          return { opacity: 0, y: distance };
+      }
+    })();
 
-  const getVisibleVariant = () => {
-    return { opacity: 1, y: 0, x: 0, scale: 1, rotate: 0 };
-  };
+    return {
+      hidden: hiddenVariant,
+      visible: {
+        opacity: 1,
+        y: 0,
+        x: 0,
+        scale: 1,
+        rotate: 0,
+        transition: {
+          duration: duration,
+          delay: delay,
+          ease: "easeOut" // Simpler easing
+        }
+      }
+    };
+  }, [shouldAnimate, direction, distance, duration, delay]);
 
-  const variants = {
-    hidden: getInitialVariant(),
-    visible: {
-      ...getVisibleVariant(),
-      transition: shouldAnimate ? {
-        duration: duration * (shouldAnimate ? 1 : 0.1),
-        delay: shouldAnimate ? delay : 0,
-        ease: [0.25, 0.46, 0.45, 0.94] as const,
-      } : { duration: 0 },
-    },
-  };
+  // Disable animations entirely on low-end devices
+  if (!shouldEnableAnimation || deviceCapabilities.isLowEndDevice) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div

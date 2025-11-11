@@ -38,7 +38,7 @@ function App() {
   const deviceCapabilities = useDeviceOptimization();
   
   // Initialize service worker
-  const { isSupported: swSupported, preloadResources } = useServiceWorker();
+  useServiceWorker();
   
   // Preload critical resources with device adaptation
   useEffect(() => {
@@ -343,7 +343,7 @@ function App() {
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative px-4">
-        <ParallaxScroll speed={0.3} direction="up">
+        <ParallaxScroll speed={0.1} direction="up">
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <div className="space-y-6">
               <ScrollAnimation direction="scale" delay={0.1} duration={0.4}>
@@ -352,7 +352,7 @@ function App() {
             </h1>
               </ScrollAnimation>
               
-              <ScrollAnimation direction="up" delay={0.2} duration={0.4}>
+              <ScrollAnimation direction="up" delay={0.2} duration={0.3}>
             <div className="relative inline-block">
               <h2 className="text-4xl md:text-4xl font-bold mb-4 animate-float">
                     <TypewriterText 
@@ -363,9 +363,9 @@ function App() {
                         t('hero.typewriterTexts.webDesigner'),
                         t('hero.typewriterTexts.freelanceDeveloper')
                       ]}
-                      speed={100}
-                      deleteSpeed={50}
-                      pauseTime={2000}
+                      speed={150}
+                      deleteSpeed={100}
+                      pauseTime={1500}
                       className="bg-gradient-to-r from-nebulaPink to-cosmicBlue text-transparent bg-clip-text"
                     />
               </h2>
@@ -373,13 +373,13 @@ function App() {
             </div>
               </ScrollAnimation>
               
-              <ScrollAnimation direction="up" delay={0.3} duration={0.4}>
+              <ScrollAnimation direction="up" delay={0.3} duration={0.3}>
                 <p className="text-xl md:text-2xl text-starWhite/90 mb-8 max-w-2xl mx-auto leading-relaxed">
                   {t('hero.description')}
                 </p>
               </ScrollAnimation>
               
-              <ScrollAnimation direction="up" delay={0.4} duration={0.4}>
+              <ScrollAnimation direction="up" delay={0.4} duration={0.3}>
                 <StaggerAnimation staggerDelay={0.05} direction="up">
                   <div className="flex gap-6 justify-center">
               <a
@@ -390,14 +390,14 @@ function App() {
                 <div className="absolute inset-0 rounded-full bg-nebulaPink/20 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
               </a>
               <a
-                href="https://www.instagram.com/miguel1santos7/"
+                href="https://www.instagram.com/miguelsantos.pr/"
                 className="group relative p-3 bg-deepSpace/50 rounded-full hover:bg-deepSpace/80 transition-all duration-300 border border-starWhite/10"
               >
                 <Instagram className="w-6 h-6 group-hover:text-pink-500 transition-colors" />
                 <div className="absolute inset-0 rounded-full bg-pink-500/20 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
               </a>
               <a
-                      href="mailto:migasmps2005@gmail.com"
+                      href="mailto:contacto@miguelweb.dev"
                 className="group relative p-3 bg-deepSpace/50 rounded-full hover:bg-deepSpace/80 transition-all duration-300 border border-starWhite/10"
               >
                 <Mail className="w-6 h-6 group-hover:text-emerald-500 transition-colors" />
@@ -407,7 +407,7 @@ function App() {
                 </StaggerAnimation>
               </ScrollAnimation>
               
-              <ScrollAnimation direction="up" delay={0.5} duration={0.4}>
+              <ScrollAnimation direction="up" delay={0.5} duration={0.3}>
             <div className="mt-12 animate-bounce-slow">
               <Rocket className="w-8 h-8 mx-auto text-nebulaPink" />
                 </div>
@@ -427,13 +427,37 @@ function App() {
       {/* Projects Section */}
       <section id="projects" className="py-20 px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <ScrollAnimation direction="up" delay={0.1} duration={0.4}>
+          <ScrollAnimation direction="up" delay={0.1} duration={0.3}>
           <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-nebulaPink to-cosmicBlue text-transparent bg-clip-text">
             {t('projects.title')}
           </h2>
           </ScrollAnimation>
           
-          <StaggerAnimation staggerDelay={0.05} direction="up">
+          {/* Beautiful Disclaimer */}
+          <ScrollAnimation direction="up" delay={0.2} duration={0.4}>
+            <div className="max-w-4xl mx-auto mb-12">
+              <div className="bg-gradient-to-r from-deepSpace/80 to-deepSpace/50 backdrop-blur-lg border border-starWhite/20 rounded-2xl p-6 shadow-xl relative overflow-hidden">
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-nebulaPink/20 to-transparent rounded-full blur-xl"></div>
+                <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-cosmicBlue/20 to-transparent rounded-full blur-xl"></div>
+                
+                <div className="relative z-10 flex items-start space-x-4">
+                  <div className="flex-shrink-0 mt-1">
+                    <svg className="w-6 h-6 text-nebulaPink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-starWhite/80 text-sm leading-relaxed">
+                      {t('projects.disclaimer')}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollAnimation>
+          
+          <StaggerAnimation staggerDelay={0.1} direction="up">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
               <ProjectCard
@@ -451,145 +475,6 @@ function App() {
         <Suspense fallback={<PerformanceFallback height="h-64" />}>
           <ExperienceCarousel />
         </Suspense>
-      </section>
-
-      {/* App Store Section */}
-      <section id="appstore" className="py-20 px-4 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <ScrollAnimation direction="up" delay={0.1} duration={0.4}>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-nebulaPink via-cosmicBlue to-violet-500 text-transparent bg-clip-text">
-                {t('appstore.title')}
-              </h2>
-              <p className="text-xl text-starWhite/80 max-w-3xl mx-auto leading-relaxed">
-                {t('appstore.subtitle')}
-              </p>
-            </div>
-          </ScrollAnimation>
-
-          {/* App Store Card */}
-          <ScrollAnimation direction="scale" delay={0.1} duration={0.3}>
-            <div className="relative max-w-4xl mx-auto">
-              {/* Background Effects */}
-              <div className="absolute inset-0 bg-gradient-to-r from-nebulaPink/10 via-cosmicBlue/10 to-violet-500/10 rounded-3xl blur-xl"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-nebulaPink/5 via-cosmicBlue/5 to-violet-500/5 rounded-3xl"></div>
-              
-              {/* Main Card */}
-              <div className="relative bg-deepSpace/80 backdrop-blur-xl border border-starWhite/20 rounded-3xl p-8 md:p-12 overflow-hidden">
-                {/* Decorative Elements */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-nebulaPink/20 to-transparent rounded-full blur-2xl"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-cosmicBlue/20 to-transparent rounded-full blur-2xl"></div>
-                
-                <div className="relative z-10">
-                  {/* Header */}
-                  <div className="text-center mb-12">
-                    <ScrollAnimation direction="up" delay={0.4} duration={0.4}>
-                      <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-nebulaPink to-cosmicBlue rounded-2xl mb-6">
-                        <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                      </div>
-                    </ScrollAnimation>
-                    
-                    <ScrollAnimation direction="up" delay={0.5} duration={0.4}>
-                      <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-nebulaPink to-cosmicBlue text-transparent bg-clip-text">
-                        {t('appstore.miguelAppStore')}
-                      </h3>
-                    </ScrollAnimation>
-                    
-                    <ScrollAnimation direction="up" delay={0.6} duration={0.4}>
-                      <p className="text-lg text-starWhite/70 mb-8 max-w-2xl mx-auto">
-                        {t('appstore.miguelAppStoreDesc')}
-                      </p>
-                    </ScrollAnimation>
-                  </div>
-
-                  {/* Features Grid */}
-                  <StaggerAnimation staggerDelay={0.1} direction="up">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                      <div className="bg-deepSpace/50 border border-starWhite/10 rounded-2xl p-6 backdrop-blur-sm hover:border-nebulaPink/30 transition-all duration-300 group">
-                        <div className="w-12 h-12 bg-gradient-to-r from-nebulaPink to-pink-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                          </svg>
-                        </div>
-                        <h4 className="text-xl font-semibold mb-3 text-white">{t('appstore.mobileApps')}</h4>
-                        <p className="text-starWhite/70 text-sm leading-relaxed">
-                          {t('appstore.mobileAppsDesc')}
-                        </p>
-                      </div>
-
-                      <div className="bg-deepSpace/50 border border-starWhite/10 rounded-2xl p-6 backdrop-blur-sm hover:border-cosmicBlue/30 transition-all duration-300 group">
-                        <div className="w-12 h-12 bg-gradient-to-r from-cosmicBlue to-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                          </svg>
-                        </div>
-                        <h4 className="text-xl font-semibold mb-3 text-white">{t('appstore.webApps')}</h4>
-                        <p className="text-starWhite/70 text-sm leading-relaxed">
-                          {t('appstore.webAppsDesc')}
-                        </p>
-                      </div>
-
-                      <div className="bg-deepSpace/50 border border-starWhite/10 rounded-2xl p-6 backdrop-blur-sm hover:border-violet-500/30 transition-all duration-300 group">
-                        <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                          </svg>
-                        </div>
-                        <h4 className="text-xl font-semibold mb-3 text-white">{t('appstore.liveUpdates')}</h4>
-                        <p className="text-starWhite/70 text-sm leading-relaxed">
-                          {t('appstore.liveUpdatesDesc')}
-                        </p>
-                      </div>
-                    </div>
-                  </StaggerAnimation>
-
-                  {/* CTA Section */}
-                  <ScrollAnimation direction="up" delay={0.7} duration={0.4}>
-                    <div className="text-center">
-                      <div className="bg-gradient-to-r from-deepSpace/50 to-deepSpace/30 border border-starWhite/10 rounded-2xl p-8 backdrop-blur-sm">
-                        <h4 className="text-2xl font-bold mb-4 bg-gradient-to-r from-nebulaPink to-cosmicBlue text-transparent bg-clip-text">
-                          {t('appstore.readyToExplore')}
-                        </h4>
-                        <p className="text-starWhite/70 mb-8 max-w-lg mx-auto">
-                          {t('appstore.readyToExploreDesc')}
-                        </p>
-                        
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                          <a
-                            href="https://miguelstore.vercel.app/" target="_blank"
-                            className="group relative bg-gradient-to-r from-nebulaPink to-cosmicBlue text-white px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-300 font-medium shadow-lg shadow-nebulaPink/25 hover:shadow-nebulaPink/40"
-                          >
-                            <div className="flex items-center justify-center space-x-3">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                              </svg>
-                              <span>{t('appstore.visitAppStore')}</span>
-                            </div>
-                            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-nebulaPink to-cosmicBlue blur-md opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
-                          </a>
-                          
-                          <a
-                            href="#contact"
-                            className="group bg-deepSpace/50 border border-starWhite/20 text-white px-8 py-4 rounded-xl hover:border-nebulaPink/50 hover:bg-nebulaPink/10 transition-all duration-300 font-medium backdrop-blur-sm"
-                          >
-                            <div className="flex items-center justify-center space-x-3">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                              </svg>
-                              <span>{t('appstore.getInTouch')}</span>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </ScrollAnimation>
-                </div>
-              </div>
-            </div>
-          </ScrollAnimation>
-        </div>
       </section>
 
       {/* Skills Section */}
@@ -680,14 +565,14 @@ function App() {
                         <div className="absolute inset-0 rounded-xl bg-nebulaPink/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
                 <a
-                  href="https://www.instagram.com/miguel1santos7/"
+                  href="https://www.instagram.com/miguelsantos.pr/"
                         className="group relative p-3 bg-deepSpace/50 rounded-xl border border-starWhite/10 hover:border-pink-500/50 transition-all duration-300 backdrop-blur-sm"
                 >
                         <Instagram className="w-6 h-6 text-starWhite/70 group-hover:text-pink-500 transition-colors" />
                         <div className="absolute inset-0 rounded-xl bg-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
                 <a
-                        href="mailto:migasmps2005@gmail.com"
+                        href="mailto:contacto@miguelweb.dev"
                         className="group relative p-3 bg-deepSpace/50 rounded-xl border border-starWhite/10 hover:border-emerald-500/50 transition-all duration-300 backdrop-blur-sm"
                 >
                         <Mail className="w-6 h-6 text-starWhite/70 group-hover:text-emerald-500 transition-colors" />
@@ -739,10 +624,10 @@ function App() {
                         <div>
                           <p className="text-starWhite/70 text-sm">{t('footer.email')}</p>
                           <a 
-                            href="mailto:migasmps2005@gmail.com"
+                            href="mailto:contacto@miguelweb.dev"
                             className="text-starWhite hover:text-nebulaPink transition-colors duration-300"
                           >
-                            migasmps2005@gmail.com
+                            contacto@miguelweb.dev
                           </a>
                         </div>
                       </div>

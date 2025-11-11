@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto; /* Changed from smooth to reduce scroll jank */
   }
 
   body {
@@ -15,12 +15,12 @@
 @keyframes glow {
   0%,
   100% {
-    text-shadow: 0 0 20px rgba(255, 97, 216, 0.5),
-      0 0 40px rgba(76, 201, 240, 0.3);
+    text-shadow: 0 0 5px rgba(255, 97, 216, 0.2),
+      0 0 10px rgba(76, 201, 240, 0.1);
   }
   50% {
-    text-shadow: 0 0 40px rgba(255, 97, 216, 0.8),
-      0 0 60px rgba(76, 201, 240, 0.5);
+    text-shadow: 0 0 10px rgba(255, 97, 216, 0.3),
+      0 0 15px rgba(76, 201, 240, 0.2);
   }
 }
 
@@ -30,7 +30,7 @@
     transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translate3d(0, -30px, 0);
+    transform: translate3d(0, -8px, 0); /* Reduced float distance */
   }
 }
 
@@ -40,17 +40,17 @@
     transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -5px, 0); /* Reduced bounce distance */
   }
 }
 
 @keyframes meteor {
   0% {
     transform: translate3d(0, 0, 0) rotate(45deg);
-    opacity: 1;
+    opacity: 0.7;
   }
   100% {
-    transform: translate3d(-100px, 200vh, 0) rotate(45deg);
+    transform: translate3d(-30px, 60px, 0) rotate(45deg); /* Reduced travel distance */
     opacity: 0;
   }
 }
@@ -58,7 +58,7 @@
 @keyframes fade-in {
   0% {
     opacity: 0;
-    transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, 5px, 0); /* Reduced entrance distance */
   }
   100% {
     opacity: 1;
@@ -67,22 +67,22 @@
 }
 
 .animate-glow {
-  animation: glow 1s ease-in-out infinite;
+  animation: glow 3s ease-in-out infinite; /* Slower, subtler glow */
   will-change: text-shadow;
 }
 
 .animate-float-slow {
-  animation: float-slow 6s ease-in-out infinite;
+  animation: float-slow 10s ease-in-out infinite; /* Slower float */
   will-change: transform;
 }
 
 .animate-bounce-slow {
-  animation: bounce-slow 3s ease-in-out infinite;
+  animation: bounce-slow 5s ease-in-out infinite; /* Slower bounce */
   will-change: transform;
 }
 
 .animate-fade-in {
-  animation: fade-in 1s ease-out forwards;
+  animation: fade-in 0.5s ease-out forwards; /* Faster fade in */
   will-change: opacity, transform;
 }
 
@@ -108,15 +108,36 @@
 /* Mobile optimizations */
 @media (max-width: 768px) {
   .animate-glow {
-    animation-duration: 2s; /* Slower on mobile */
+    animation-duration: 4s; /* Even slower on mobile */
   }
   
   .animate-float-slow {
-    animation-duration: 8s; /* Slower on mobile */
+    animation-duration: 12s; /* Even slower on mobile */
   }
   
   .animate-bounce-slow {
-    animation-duration: 4s; /* Slower on mobile */
+    animation-duration: 8s; /* Even slower on mobile */
+  }
+  
+  /* Reduce animation intensity on mobile */
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -5px, 0); /* Even less float on mobile */
+    }
+  }
+  
+  @keyframes bounce-slow {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -3px, 0); /* Even less bounce on mobile */
+    }
   }
 }
 
@@ -128,24 +149,24 @@
     animation: none !important; /* Disable animations on very small screens */
   }
   
-  /* Reduce text shadows for better performance */
+  /* Minimal text shadows for better performance */
   .animate-glow {
-    text-shadow: 0 0 10px rgba(255, 97, 216, 0.3) !important;
+    text-shadow: 0 0 3px rgba(255, 97, 216, 0.1) !important;
   }
 }
 
 /* Add a custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px; /* Thinner scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(3, 0, 20, 0.5);
+  background: rgba(3, 0, 20, 0.3); /* More transparent */
 }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #ff61d8, #4cc9f0);
-  border-radius: 4px;
+  border-radius: 2px; /* Smaller radius */
 }
 
 ::-webkit-scrollbar-thumb:hover {

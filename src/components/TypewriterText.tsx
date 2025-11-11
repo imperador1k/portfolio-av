@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import useDeviceOptimization from '../hooks/useDeviceOptimization';
 
 interface TypewriterTextProps {
   texts: string[];
@@ -19,8 +20,34 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const deviceCapabilities = useDeviceOptimization();
+
+  // Memoize adjusted speeds for different devices
+  const adjustedSpeeds = useMemo(() => {
+    // Slow down animations on mobile or low-end devices
+    const speedMultiplier = deviceCapabilities.isMobile || deviceCapabilities.isLowEndDevice ? 1.5 : 1;
+    
+    return {
+      typeSpeed: speed * speedMultiplier,
+      deleteSpeed: deleteSpeed * speedMultiplier,
+      pauseTime: pauseTime
+    };
+  }, [speed, deleteSpeed, pauseTime, deviceCapabilities.isMobile, deviceCapabilities.isLowEndDevice]);
+
+  // Don't animate on very low-end devices
+  if (deviceCapabilities.isLowEndDevice) {
+    return (
+      <span className={className}>
+        {texts[0]}
+        <span className="text-nebulaPink">|</span>
+      </span>
+    );
+  }
 
   useEffect(() => {
+    // Use adjusted speeds
+    const { typeSpeed, deleteSpeed, pauseTime } = adjustedSpeeds;
+    
     const timeout = setTimeout(() => {
       if (isPaused) {
         setIsPaused(false);
@@ -44,10 +71,19 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
           setIsPaused(true);
         }
       }
-    }, isPaused ? pauseTime : isDeleting ? deleteSpeed : speed);
+    }, isPaused ? pauseTime : isDeleting ? deleteSpeed : typeSpeed);
 
     return () => clearTimeout(timeout);
-  }, [currentText, isDeleting, isPaused, currentTextIndex, texts, speed, deleteSpeed, pauseTime]);
+  }, [
+    currentText, 
+    isDeleting, 
+    isPaused, 
+    currentTextIndex, 
+    texts, 
+    adjustedSpeeds.typeSpeed, 
+    adjustedSpeeds.deleteSpeed, 
+    adjustedSpeeds.pauseTime
+  ]);
 
   return (
     <span className={className}>

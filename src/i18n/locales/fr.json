@@ -78,23 +78,24 @@
     "testimonialsList": [
       {
         "name": "Maria Silva",
-        "role": "Propriétaire d'Entreprise",
-        "content": "Miguel a livré un site web exceptionnel pour mon entreprise d'hébergement. Professionnel, réactif et a dépassé toutes les attentes !"
+        "role": "Propriétaire, Casa Silva Holiday Homes",
+        "content": "Travailler avec Miguel a été un véritable changement pour notre entreprise. Il a compris exactement ce dont nous avions besoin et a livré un site web qui non seulement est magnifique mais qui attire également des clients. Nos réservations ont augmenté de 70% depuis le lancement !"
       },
       {
         "name": "João Santos",
-        "role": "Gestionnaire de Restaurant",
-        "content": "Le site web du restaurant de hamburgers que Miguel a créé a augmenté nos commandes en ligne de 300%. Travail incroyable et excellente communication !"
+        "role": "Gestionnaire, Santos Burger House",
+        "content": "J'étais sceptique à l'idée d'avoir un nouveau site web, mais Miguel a complètement changé mon avis. Le système de commande en ligne qu'il a construit pour nous est si facile à utiliser que notre personnel n'a eu besoin d'aucune formation. Nos clients l'adorent aussi - nous avons vu une augmentation de 300% des commandes en ligne !"
       },
       {
         "name": "Ana Costa",
-        "role": "Passionnée de Fitness",
-        "content": "L'application d'entraînement personnel que Miguel a développée est incroyable. C'est comme avoir un entraîneur personnel dans votre poche !"
+        "role": "Entraîneur Personnel & Coach Fitness",
+        "content": "En tant que professionnel du fitness, j'avais besoin d'une application qui aiderait vraiment mes clients. Miguel n'a pas seulement construit une application - il a créé un outil que mes clients aiment vraiment utiliser. Les fonctionnalités de suivi d'entraînement et de visualisation des progrès ont beaucoup facilité mon travail."
       }
     ]
   },
   "projects": {
     "title": "Projets en Vedette",
+    "disclaimer": "Note : Pour des raisons de confidentialité et de droits, je ne peux pas fournir de liens directs vers ces sites web. Les sites sont en constante mise à jour avec de nouvelles fonctionnalités et améliorations. Si vous souhaitez voir des exemples spécifiques de mon travail, veuillez me contacter directement.",
     "viewDetails": "Voir les Détails",
     "liveDemo": "Démo en Direct",
     "viewCode": "Voir le Code",

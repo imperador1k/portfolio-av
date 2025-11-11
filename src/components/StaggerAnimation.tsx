@@ -1,5 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { motion, useInView } from 'framer-motion';
+import useDeviceOptimization from '../hooks/useDeviceOptimization';
+import type { Variants } from 'framer-motion';
 
 interface StaggerAnimationProps {
   children: React.ReactNode;
@@ -11,63 +13,72 @@ interface StaggerAnimationProps {
 
 const StaggerAnimation: React.FC<StaggerAnimationProps> = ({
   children,
-  staggerDelay = 0.05,
+  staggerDelay = 0.1, // Increased delay for lighter feel
   direction = 'up',
   className = '',
-  once = false
+  once = true // Changed to true to reduce re-animations
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once });
+  const deviceCapabilities = useDeviceOptimization();
 
-  const getInitialVariant = () => {
-    switch (direction) {
-      case 'up':
-        return { opacity: 0, y: 60 };
-      case 'down':
-        return { opacity: 0, y: -60 };
-      case 'left':
-        return { opacity: 0, x: 60 };
-      case 'right':
-        return { opacity: 0, x: -60 };
-      default:
-        return { opacity: 0, y: 60 };
+  // Memoize device-aware stagger delay
+  const effectiveStaggerDelay = useMemo(() => {
+    // Reduce stagger effect on mobile or low-end devices
+    if (deviceCapabilities.isMobile || deviceCapabilities.isLowEndDevice) {
+      return Math.min(staggerDelay * 3, 0.2); // Even slower on mobile
     }
-  };
+    return staggerDelay;
+  }, [staggerDelay, deviceCapabilities.isMobile, deviceCapabilities.isLowEndDevice]);
 
-  const getVisibleVariant = () => {
-    switch (direction) {
-      case 'up':
-      case 'down':
-        return { opacity: 1, y: 0 };
-      case 'left':
-      case 'right':
-        return { opacity: 1, x: 0 };
-      default:
-        return { opacity: 1, y: 0 };
-    }
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
+  // Much simpler and lighter variants
+  const containerVariants: Variants = useMemo(() => ({
+    hidden: { opacity: 1 }, // Start visible but with children hidden
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: staggerDelay,
+        staggerChildren: effectiveStaggerDelay,
         delayChildren: 0.05,
       },
     },
-  };
+  }), [effectiveStaggerDelay]);
 
-  const itemVariants = {
-    hidden: getInitialVariant(),
-    visible: {
-      ...getVisibleVariant(),
-      transition: {
-        duration: 0.4,
-        ease: [0.25, 0.46, 0.45, 0.94] as const,
+  const itemVariants: Variants = useMemo(() => {
+    const distance = deviceCapabilities.isMobile ? 15 : 25; // Reduced distance
+    
+    const hiddenVariant = (() => {
+      switch (direction) {
+        case 'up':
+          return { opacity: 0, y: distance };
+        case 'down':
+          return { opacity: 0, y: -distance };
+        case 'left':
+          return { opacity: 0, x: distance };
+        case 'right':
+          return { opacity: 0, x: -distance };
+        default:
+          return { opacity: 0, y: distance };
+      }
+    })();
+
+    return {
+      hidden: hiddenVariant,
+      visible: {
+        opacity: 1,
+        y: 0,
+        x: 0,
+        transition: {
+          duration: deviceCapabilities.isMobile ? 0.2 : 0.3, // Faster animations
+          ease: "easeOut",
+        },
       },
-    },
-  };
+    };
+  }, [direction, deviceCapabilities.isMobile]);
+
+  // Disable entirely on very low-end devices
+  if (deviceCapabilities.isLowEndDevice) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div

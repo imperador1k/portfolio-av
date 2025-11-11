@@ -78,23 +78,24 @@
     "testimonialsList": [
       {
         "name": "Maria Silva",
-        "role": "Business Owner",
-        "content": "Miguel delivered an outstanding website for my accommodation business. Professional, responsive, and exceeded all expectations!"
+        "role": "Owner, Casa Silva Holiday Homes",
+        "content": "Working with Miguel was a game-changer for our business. He understood exactly what we needed and delivered a website that not only looks amazing but also brings in customers. Our bookings have increased by 70% since the launch!"
       },
       {
         "name": "João Santos",
-        "role": "Restaurant Manager",
-        "content": "The burger restaurant website Miguel created increased our online orders by 300%. Amazing work and great communication!"
+        "role": "Manager, Santos Burger House",
+        "content": "I was skeptical about getting a new website, but Miguel completely changed my mind. The online ordering system he built for us is so easy to use that our staff didn't need any training. Our customers love it too - we've seen a 300% increase in online orders!"
       },
       {
         "name": "Ana Costa",
-        "role": "Fitness Enthusiast",
-        "content": "The personal training app Miguel developed is incredible. It's like having a personal trainer in your pocket!"
+        "role": "Personal Trainer & Fitness Coach",
+        "content": "As a fitness professional, I needed an app that would truly help my clients. Miguel didn't just build an app - he created a tool that my clients actually enjoy using. The workout tracking and progress visualization features have made my job so much easier."
       }
     ]
   },
   "projects": {
     "title": "Featured Projects",
+    "disclaimer": "Note: For privacy and rights reasons, I cannot provide direct links to these websites. The sites are constantly being updated with new features and improvements. If you'd like to see specific examples of my work, please contact me directly.",
     "viewDetails": "View Details",
     "liveDemo": "Live Demo",
     "viewCode": "View Code",

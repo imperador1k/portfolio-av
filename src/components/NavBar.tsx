@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Menu, X, Github, Linkedin, Mail, Rocket, Code, Sparkles, ChevronDown, Download, Instagram } from 'lucide-react';
+import { Menu, X, Github, Mail, Rocket, Code, Sparkles, Download, Instagram } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ScrollAnimation from './ScrollAnimation';
 import StaggerAnimation from './StaggerAnimation';
-import { XIcon } from './XIcon';
+
 import LanguageSelector from './LanguageSelector';
 
 const NavBar = () => {
@@ -18,12 +18,11 @@ const NavBar = () => {
     { href: '#about', label: t('nav.about'), icon: Code },
     { href: '#projects', label: t('nav.projects'), icon: Rocket },
     { href: '#experience', label: t('nav.experience'), icon: Sparkles },
-    { href: '#appstore', label: t('nav.appstore'), icon: Rocket },
     { href: '#skills', label: t('nav.skills'), icon: Code },
     { href: '#contact', label: t('nav.contact'), icon: Mail }
   ];
 
-  const sections = ['home', 'about', 'projects', 'experience', 'appstore', 'skills', 'contact'];
+  const sections = ['home', 'about', 'projects', 'experience', 'skills', 'contact'];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -215,7 +214,7 @@ const NavBar = () => {
                 </motion.a>
                 
                 <motion.a
-                  href="https://www.instagram.com/miguel1santos7/"
+                  href="https://www.instagram.com/miguelsantos.pr/"
                   className="p-2 bg-deepSpace/50 rounded-lg border border-starWhite/10 hover:border-pink-500/50 transition-all duration-300 backdrop-blur-sm group relative overflow-hidden"
                   whileHover={{ 
                     scale: 1.05,
@@ -543,8 +542,8 @@ const NavBar = () => {
                   >
                     {[
                       { href: "https://github.com/imperador1k", icon: Github, color: "nebulapink" },
-                      { href: "https://www.instagram.com/miguel1santos7/", icon: Instagram, color: "pink-500" },
-                      { href: "mailto:migasmps2005@gmail.com", icon: Mail, color: "emerald-500" }
+                      { href: "https://www.instagram.com/miguelsantos.pr/", icon: Instagram, color: "pink-500" },
+                      { href: "mailto:contacto@miguelweb.dev", icon: Mail, color: "emerald-500" }
                     ].map((social, index) => {
                       const Icon = social.icon;
                       return (

@@ -78,23 +78,24 @@
     "testimonialsList": [
       {
         "name": "Maria Silva",
-        "role": "Proprietária de Negócio",
-        "content": "O Miguel entregou um website excecional para o meu negócio de alojamento. Profissional, responsivo e excedeu todas as expectativas!"
+        "role": "Proprietária, Casa Silva Holiday Homes",
+        "content": "Trabalhar com o Miguel foi um verdadeiro divisor de águas para o nosso negócio. Ele compreendeu exatamente o que precisávamos e entregou um website que não só parece incrível como também traz clientes. As nossas reservas aumentaram 70% desde o lançamento!"
       },
       {
         "name": "João Santos",
-        "role": "Gerente de Restaurante",
-        "content": "O website do restaurante de hambúrgueres que o Miguel criou aumentou as nossas encomendas online em 300%. Trabalho incrível e excelente comunicação!"
+        "role": "Gerente, Santos Burger House",
+        "content": "Eu estava cético sobre ter um novo website, mas o Miguel mudou completamente a minha opinião. O sistema de encomendas online que ele construiu para nós é tão fácil de usar que a nossa equipa não precisou de formação. Os nossos clientes também adoram - vimos um aumento de 300% nas encomendas online!"
       },
       {
         "name": "Ana Costa",
-        "role": "Entusiasta de Fitness",
-        "content": "A aplicação de treino pessoal que o Miguel desenvolveu é incrível. É como ter um personal trainer no bolso!"
+        "role": "Personal Trainer & Coach de Fitness",
+        "content": "Como profissional de fitness, eu precisava de uma aplicação que realmente ajudasse os meus clientes. O Miguel não apenas construiu uma app - ele criou uma ferramenta que os meus clientes realmente gostam de usar. As funcionalidades de acompanhamento de treinos e visualização de progresso facilitaram muito o meu trabalho."
       }
     ]
   },
   "projects": {
     "title": "Projetos em Destaque",
+    "disclaimer": "Nota: Por motivos de privacidade e direitos, não posso disponibilizar links diretos para estes websites. Os sites estão em constante atualização com novas funcionalidades e melhorias. Se desejar ver exemplos específicos do meu trabalho, por favor contacte-me diretamente.",
     "viewDetails": "Ver Detalhes",
     "liveDemo": "Demo ao Vivo",
     "viewCode": "Ver Código",
