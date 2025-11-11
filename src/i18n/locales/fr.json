@@ -3,7 +3,7 @@
     "about": "À Propos",
     "projects": "Projets",
     "experience": "Expérience",
-    "appstore": "App Store",
+    "certificates": "Certificats",
     "skills": "Compétences",
     "contact": "Contact"
   },
@@ -391,5 +391,22 @@
     "months": "mois",
     "week": "semaine",
     "weeks": "semaines"
+  },
+  "certificates": {
+    "title": "Certificats Professionnels",
+    "subtitle": "Mon parcours d'apprentissage continu et de développement professionnel",
+    "softwareDevelopment": "Techniques de Développement Logiciel",
+    "softwareDevelopmentDesc": "Méthodologies avancées et meilleures pratiques en ingénierie logicielle et cycle de vie du développement",
+    "dataStructures": "Structures de Données",
+    "dataStructuresDesc": "Concepts fondamentaux d'organisation des données, algorithmes et complexité computationnelle",
+    "algorithms": "Algorithmes et Complexité",
+    "algorithmsDesc": "Analyse et conception d'algorithmes efficaces pour la résolution de problèmes et l'optimisation",
+    "issued": "Délivré",
+    "verified": "Vérifié",
+    "credential": "ID de Credential",
+    "viewCertificate": "Voir le Certificat",
+    "certificatesEarned": "Certificats Obtenus",
+    "verifiedCredentials": "Identifiants Vérifiés",
+    "continuousLearning": "Apprentissage Continu"
   }
 }

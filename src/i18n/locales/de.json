@@ -3,7 +3,7 @@
     "about": "Über Mich",
     "projects": "Projekte",
     "experience": "Erfahrung",
-    "appstore": "App Store",
+    "certificates": "Zertifikate",
     "skills": "Fähigkeiten",
     "contact": "Kontakt"
   },
@@ -391,5 +391,22 @@
     "months": "Monate",
     "week": "Woche",
     "weeks": "Wochen"
+  },
+  "certificates": {
+    "title": "Berufliche Zertifikate",
+    "subtitle": "Meine Reise des kontinuierlichen Lernens und der beruflichen Entwicklung",
+    "softwareDevelopment": "Softwareentwicklungstechniken",
+    "softwareDevelopmentDesc": "Fortgeschrittene Methoden und Best Practices im Software-Engineering und Entwicklungszyklus",
+    "dataStructures": "Datenstrukturen",
+    "dataStructuresDesc": "Grundlegende Konzepte der Datenorganisation, Algorithmen und Berechnungskomplexität",
+    "algorithms": "Algorithmen und Komplexität",
+    "algorithmsDesc": "Analyse und Design effizienter Algorithmen zur Problemlösung und Optimierung",
+    "issued": "Ausgestellt",
+    "verified": "Verifiziert",
+    "credential": "Credential-ID",
+    "viewCertificate": "Zertifikat Anzeigen",
+    "certificatesEarned": "Erhaltene Zertifikate",
+    "verifiedCredentials": "Verifizierte Credentials",
+    "continuousLearning": "Kontinuierliches Lernen"
   }
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Menu, X, Github, Mail, Rocket, Code, Sparkles, Download, Instagram } from 'lucide-react';
+import { Menu, X, Github, Mail, Rocket, Code, Sparkles, Download, Instagram, Award } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ScrollAnimation from './ScrollAnimation';
 import StaggerAnimation from './StaggerAnimation';
@@ -18,11 +18,12 @@ const NavBar = () => {
     { href: '#about', label: t('nav.about'), icon: Code },
     { href: '#projects', label: t('nav.projects'), icon: Rocket },
     { href: '#experience', label: t('nav.experience'), icon: Sparkles },
+    { href: '#certificates', label: t('nav.certificates'), icon: Award },
     { href: '#skills', label: t('nav.skills'), icon: Code },
     { href: '#contact', label: t('nav.contact'), icon: Mail }
   ];
 
-  const sections = ['home', 'about', 'projects', 'experience', 'skills', 'contact'];
+  const sections = ['home', 'about', 'projects', 'experience', 'certificates', 'skills', 'contact'];
 
   useEffect(() => {
     const handleScroll = () => {

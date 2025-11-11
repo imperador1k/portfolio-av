@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { lazy, Suspense, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import NavBar from './components/NavBar';
 import ProjectCard from './components/ProjectCard';
 import ContactForm from './components/ContactForm';
@@ -475,6 +476,262 @@ function App() {
         <Suspense fallback={<PerformanceFallback height="h-64" />}>
           <ExperienceCarousel />
         </Suspense>
+      </section>
+
+      {/* Certificates Section */}
+      <section id="certificates" className="py-20 px-4 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <ScrollAnimation direction="up" delay={0.1} duration={0.4}>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-nebulaPink via-cosmicBlue to-violet-500 text-transparent bg-clip-text">
+                {t('certificates.title')}
+              </h2>
+              <p className="text-xl text-starWhite/80 max-w-3xl mx-auto leading-relaxed">
+                {t('certificates.subtitle')}
+              </p>
+            </div>
+          </ScrollAnimation>
+
+          <StaggerAnimation staggerDelay={0.1} direction="up">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Certificate 1 */}
+              <motion.div 
+                className="group relative bg-deepSpace/50 backdrop-blur-xl border border-starWhite/20 rounded-2xl overflow-hidden hover:border-nebulaPink/50 transition-all duration-500"
+                whileHover={{ y: -10 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="relative overflow-hidden rounded-t-2xl">
+                  <img 
+                    src="/tecnicas_desenvolvimento_software.jpg" 
+                    alt="Técnicas de Desenvolvimento de Software" 
+                    className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-deepSpace to-transparent opacity-80"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-nebulaPink/20 via-transparent to-cosmicBlue/20"></div>
+                  
+                  {/* Glowing Border Effect */}
+                  <div className="absolute inset-0 rounded-t-2xl border-2 border-nebulaPink/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                
+                <div className="p-6 relative z-10">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-nebulaPink to-cosmicBlue flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-medium rounded-full border border-emerald-500/30">
+                      {t('certificates.verified')}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-2 text-white group-hover:text-nebulaPink transition-colors duration-300">
+                    {t('certificates.softwareDevelopment')}
+                  </h3>
+                  
+                  <p className="text-starWhite/70 text-sm mb-4 leading-relaxed">
+                    {t('certificates.softwareDevelopmentDesc')}
+                  </p>
+                  
+                  <div className="flex items-center text-starWhite/60 text-xs mb-4">
+                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span>{t('certificates.issued')} 2025</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between pt-4 border-t border-starWhite/10">
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-cosmicBlue to-violet-500 flex items-center justify-center mr-2">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z" />
+                        </svg>
+                      </div>
+                      <span className="text-xs font-medium text-starWhite/80">{t('certificates.credential')}</span>
+                    </div>
+                    <motion.button 
+                      className="text-nebulaPink hover:text-cosmicBlue text-sm font-medium flex items-center group"
+                      whileHover={{ x: 5 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {t('certificates.viewCertificate')}
+                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </motion.button>
+                  </div>
+                </div>
+                
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-nebulaPink/10 via-transparent to-cosmicBlue/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+              </motion.div>
+
+              {/* Certificate 2 */}
+              <motion.div 
+                className="group relative bg-deepSpace/50 backdrop-blur-xl border border-starWhite/20 rounded-2xl overflow-hidden hover:border-cosmicBlue/50 transition-all duration-500"
+                whileHover={{ y: -10 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="relative overflow-hidden rounded-t-2xl">
+                  <img 
+                    src="/estrutura de dados.jpg" 
+                    alt="Estrutura de Dados" 
+                    className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-deepSpace to-transparent opacity-80"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-cosmicBlue/20 via-transparent to-violet-500/20"></div>
+                  
+                  {/* Glowing Border Effect */}
+                  <div className="absolute inset-0 rounded-t-2xl border-2 border-cosmicBlue/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                
+                <div className="p-6 relative z-10">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-cosmicBlue to-violet-500 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                      </svg>
+                    </div>
+                    <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-medium rounded-full border border-emerald-500/30">
+                      {t('certificates.verified')}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-2 text-white group-hover:text-cosmicBlue transition-colors duration-300">
+                    {t('certificates.dataStructures')}
+                  </h3>
+                  
+                  <p className="text-starWhite/70 text-sm mb-4 leading-relaxed">
+                    {t('certificates.dataStructuresDesc')}
+                  </p>
+                  
+                  <div className="flex items-center text-starWhite/60 text-xs mb-4">
+                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span>{t('certificates.issued')} 2025</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between pt-4 border-t border-starWhite/10">
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-violet-500 to-emerald-500 flex items-center justify-center mr-2">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z" />
+                        </svg>
+                      </div>
+                      <span className="text-xs font-medium text-starWhite/80">{t('certificates.credential')}</span>
+                    </div>
+                    <motion.button 
+                      className="text-cosmicBlue hover:text-violet-500 text-sm font-medium flex items-center group"
+                      whileHover={{ x: 5 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {t('certificates.viewCertificate')}
+                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </motion.button>
+                  </div>
+                </div>
+                
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cosmicBlue/10 via-transparent to-violet-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+              </motion.div>
+
+              {/* Certificate 3 */}
+              <motion.div 
+                className="group relative bg-deepSpace/50 backdrop-blur-xl border border-starWhite/20 rounded-2xl overflow-hidden hover:border-violet-500/50 transition-all duration-500"
+                whileHover={{ y: -10 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="relative overflow-hidden rounded-t-2xl">
+                  <img 
+                    src="/algoritmos e complexidade.jpg" 
+                    alt="Algoritmos e Complexidade" 
+                    className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-deepSpace to-transparent opacity-80"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-violet-500/20 via-transparent to-emerald-500/20"></div>
+                  
+                  {/* Glowing Border Effect */}
+                  <div className="absolute inset-0 rounded-t-2xl border-2 border-violet-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                
+                <div className="p-6 relative z-10">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-violet-500 to-emerald-500 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-medium rounded-full border border-emerald-500/30">
+                      {t('certificates.verified')}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-2 text-white group-hover:text-violet-500 transition-colors duration-300">
+                    {t('certificates.algorithms')}
+                  </h3>
+                  
+                  <p className="text-starWhite/70 text-sm mb-4 leading-relaxed">
+                    {t('certificates.algorithmsDesc')}
+                  </p>
+                  
+                  <div className="flex items-center text-starWhite/60 text-xs mb-4">
+                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span>{t('certificates.issued')} 2025</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between pt-4 border-t border-starWhite/10">
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-emerald-500 to-nebulaPink flex items-center justify-center mr-2">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z" />
+                        </svg>
+                      </div>
+                      <span className="text-xs font-medium text-starWhite/80">{t('certificates.credential')}</span>
+                    </div>
+                    <motion.button 
+                      className="text-violet-500 hover:text-emerald-500 text-sm font-medium flex items-center group"
+                      whileHover={{ x: 5 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {t('certificates.viewCertificate')}
+                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </motion.button>
+                  </div>
+                </div>
+                
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-violet-500/10 via-transparent to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+              </motion.div>
+            </div>
+          </StaggerAnimation>
+
+          {/* Achievement Stats */}
+          <ScrollAnimation direction="up" delay={0.3} duration={0.4}>
+            <div className="mt-20 bg-gradient-to-r from-deepSpace/50 to-deepSpace/30 border border-starWhite/10 rounded-2xl p-8 backdrop-blur-sm">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div>
+                  <div className="text-4xl font-bold bg-gradient-to-r from-nebulaPink to-cosmicBlue text-transparent bg-clip-text mb-2">3+</div>
+                  <p className="text-starWhite/70">{t('certificates.certificatesEarned')}</p>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold bg-gradient-to-r from-cosmicBlue to-violet-500 text-transparent bg-clip-text mb-2">100%</div>
+                  <p className="text-starWhite/70">{t('certificates.verifiedCredentials')}</p>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold bg-gradient-to-r from-violet-500 to-emerald-500 text-transparent bg-clip-text mb-2">∞</div>
+                  <p className="text-starWhite/70">{t('certificates.continuousLearning')}</p>
+                </div>
+              </div>
+            </div>
+          </ScrollAnimation>
+        </div>
       </section>
 
       {/* Skills Section */}

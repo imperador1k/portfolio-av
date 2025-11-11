@@ -3,7 +3,7 @@
     "about": "About",
     "projects": "Projects",
     "experience": "Experience",
-    "appstore": "App Store",
+    "certificates": "Certificates",
     "skills": "Skills",
     "contact": "Contact"
   },
@@ -391,5 +391,22 @@
     "months": "months",
     "week": "week",
     "weeks": "weeks"
+  },
+  "certificates": {
+    "title": "Professional Certificates",
+    "subtitle": "My journey of continuous learning and professional development",
+    "softwareDevelopment": "Software Development Techniques",
+    "softwareDevelopmentDesc": "Advanced methodologies and best practices in software engineering and development lifecycle",
+    "dataStructures": "Data Structures",
+    "dataStructuresDesc": "Fundamental concepts of data organization, algorithms, and computational complexity",
+    "algorithms": "Algorithms and Complexity",
+    "algorithmsDesc": "Analysis and design of efficient algorithms for problem-solving and optimization",
+    "issued": "Issued",
+    "verified": "Verified",
+    "credential": "Credential ID",
+    "viewCertificate": "View Certificate",
+    "certificatesEarned": "Certificates Earned",
+    "verifiedCredentials": "Verified Credentials",
+    "continuousLearning": "Continuous Learning"
   }
 }
