@@ -5,7 +5,7 @@ import {
   Instagram,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import NavBar from './components/NavBar';
 import ProjectCard from './components/ProjectCard';
@@ -27,10 +27,15 @@ import preloader from './utils/preloader';
 const EnhancedAbout = lazy(() => import('./components/EnhancedAbout'));
 const ExperienceCarousel = lazy(() => import('./components/ExperienceCarousel'));
 const DownloadCV = lazy(() => import('./components/DownloadCV'));
+const CertificateModal = lazy(() => import('./components/CertificateModal'));
 
 
 function App() {
   const { t } = useTranslation();
+  
+  // State for certificate modal
+  const [isCertificateModalOpen, setIsCertificateModalOpen] = useState(false);
+  const [selectedCertificate, setSelectedCertificate] = useState<any>(null);
   
   // Monitor performance
   usePerformanceMonitor();
@@ -334,6 +339,37 @@ function App() {
     },
   ];
 
+  // Certificate data
+  const certificates = [
+    {
+      id: 1,
+      title: t('certificates.softwareDevelopment'),
+      description: t('certificates.softwareDevelopmentDesc'),
+      image: "/tecnicas_desenvolvimento_software.jpg",
+      issuedDate: "2025",
+      credentialId: "SD-2025-001",
+      verified: true
+    },
+    {
+      id: 2,
+      title: t('certificates.dataStructures'),
+      description: t('certificates.dataStructuresDesc'),
+      image: "/estrutura de dados.jpg",
+      issuedDate: "2025",
+      credentialId: "DS-2025-002",
+      verified: true
+    },
+    {
+      id: 3,
+      title: t('certificates.algorithms'),
+      description: t('certificates.algorithmsDesc'),
+      image: "/algoritmos e complexidade.jpg",
+      issuedDate: "2025",
+      credentialId: "AC-2025-003",
+      verified: true
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-deepSpace text-white relative overflow-hidden">
       {/* Conditional rendering based on device capabilities */}
@@ -499,6 +535,10 @@ function App() {
                 className="group relative bg-deepSpace/50 backdrop-blur-xl border border-starWhite/20 rounded-2xl overflow-hidden hover:border-nebulaPink/50 transition-all duration-500"
                 whileHover={{ y: -10 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={() => {
+                  setSelectedCertificate(certificates[0]);
+                  setIsCertificateModalOpen(true);
+                }}
               >
                 <div className="relative overflow-hidden rounded-t-2xl">
                   <img 
@@ -556,7 +596,7 @@ function App() {
                     >
                       {t('certificates.viewCertificate')}
                       <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v6a2 2 0 012 2h10a2 2 0 012-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </motion.button>
                   </div>
@@ -571,6 +611,10 @@ function App() {
                 className="group relative bg-deepSpace/50 backdrop-blur-xl border border-starWhite/20 rounded-2xl overflow-hidden hover:border-cosmicBlue/50 transition-all duration-500"
                 whileHover={{ y: -10 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={() => {
+                  setSelectedCertificate(certificates[1]);
+                  setIsCertificateModalOpen(true);
+                }}
               >
                 <div className="relative overflow-hidden rounded-t-2xl">
                   <img 
@@ -643,6 +687,10 @@ function App() {
                 className="group relative bg-deepSpace/50 backdrop-blur-xl border border-starWhite/20 rounded-2xl overflow-hidden hover:border-violet-500/50 transition-all duration-500"
                 whileHover={{ y: -10 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={() => {
+                  setSelectedCertificate(certificates[2]);
+                  setIsCertificateModalOpen(true);
+                }}
               >
                 <div className="relative overflow-hidden rounded-t-2xl">
                   <img 
@@ -700,7 +748,7 @@ function App() {
                     >
                       {t('certificates.viewCertificate')}
                       <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 012 2h10a2 2 0 012-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </motion.button>
                   </div>
@@ -951,6 +999,13 @@ function App() {
         <div className="absolute bottom-10 right-10 w-32 h-32 bg-cosmicBlue/10 rounded-full blur-xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-violet-500/10 rounded-full blur-lg animate-pulse delay-500"></div>
       </footer>
+
+      {/* Certificate Modal */}
+      <CertificateModal 
+        certificate={selectedCertificate} 
+        isOpen={isCertificateModalOpen} 
+        onClose={() => setIsCertificateModalOpen(false)} 
+      />
     </div>
   );
 }

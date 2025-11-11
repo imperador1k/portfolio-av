@@ -396,9 +396,9 @@
     "title": "Certificati Professionali",
     "subtitle": "Il mio percorso di apprendimento continuo e sviluppo professionale",
     "softwareDevelopment": "Tecniche di Sviluppo Software",
-    "softwareDevelopmentDesc": "Metodologie avanzate e best practices nell'ingegneria del software e nel ciclo di vita dello sviluppo",
+    "softwareDevelopmentDesc": "Metodologie avanzate e migliori pratiche nell'ingegneria del software e nel ciclo di vita dello sviluppo",
     "dataStructures": "Strutture Dati",
-    "dataStructuresDesc": "Concetti fondamentali dell'organizzazione dei dati, algoritmi e complessità computazionale",
+    "dataStructuresDesc": "Concetti fondamentali di organizzazione dei dati, algoritmi e complessità computazionale",
     "algorithms": "Algoritmi e Complessità",
     "algorithmsDesc": "Analisi e progettazione di algoritmi efficienti per la risoluzione di problemi e l'ottimizzazione",
     "issued": "Emesso",
@@ -407,6 +407,11 @@
     "viewCertificate": "Visualizza Certificato",
     "certificatesEarned": "Certificati Ottenuti",
     "verifiedCredentials": "Credenziali Verificate",
-    "continuousLearning": "Apprendimento Continuo"
+    "continuousLearning": "Apprendimento Continuo",
+    "credentialDetails": "Dettagli della Credenziale",
+    "verificationStatus": "Stato di Verifica",
+    "notVerified": "Non Verificato",
+    "viewFullCertificate": "Visualizza Certificato Completo",
+    "downloadCertificate": "Scarica Certificato"
   }
 }

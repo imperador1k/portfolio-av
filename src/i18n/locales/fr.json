@@ -407,6 +407,11 @@
     "viewCertificate": "Voir le Certificat",
     "certificatesEarned": "Certificats Obtenus",
     "verifiedCredentials": "Identifiants Vérifiés",
-    "continuousLearning": "Apprentissage Continu"
+    "continuousLearning": "Apprentissage Continu",
+    "credentialDetails": "Détails du Certificat",
+    "verificationStatus": "Statut de Vérification",
+    "notVerified": "Non Vérifié",
+    "viewFullCertificate": "Voir le Certificat Complet",
+    "downloadCertificate": "Télécharger le Certificat"
   }
 }
